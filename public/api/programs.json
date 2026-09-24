@@ -1,0 +1,20 @@
+[
+  {
+    "id": "ing-sistemas",
+    "name": "Ingeniería de Sistemas",
+    "category": "Pregrado",
+    "description": "Diseña soluciones tecnológicas y descubre nuevas formas de transformar el mundo con software."
+  },
+  {
+    "id": "maestria-analitica",
+    "name": "Maestría en Analítica de Datos",
+    "category": "Posgrado",
+    "description": "Convierte datos en decisiones y amplía tu perspectiva sobre los desafíos de las organizaciones."
+  },
+  {
+    "id": "diplomado-ux",
+    "name": "Diplomado en Diseño de Experiencias",
+    "category": "Educación Continua",
+    "description": "Crea experiencias digitales centradas en las personas, desde la investigación hasta el prototipo."
+  }
+]
