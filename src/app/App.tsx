@@ -1,7 +1,14 @@
+import { useState } from 'react'
+import { LeadSection } from '../features/leads/components/LeadSection'
 import { ProgramCatalog } from '../features/programs/components/ProgramCatalog'
 import { AppLayout } from '../shared/components/AppLayout'
 
 export default function App() {
+  const [selectedProgramId, setSelectedProgramId] = useState('')
+  function selectProgram(id: string) {
+    setSelectedProgramId(id)
+    document.getElementById('lead-fullName')?.focus()
+  }
   return (
     <AppLayout>
       <section className="bg-blue-950 text-white" aria-labelledby="page-title">
@@ -47,8 +54,12 @@ export default function App() {
         <p className="mb-8 mt-3 text-sm leading-6 text-slate-600">
           Pregrados, posgrados y educación continua en un solo lugar.
         </p>
-        <ProgramCatalog />
+        <ProgramCatalog onSelect={selectProgram} />
       </section>
+      <LeadSection
+        programId={selectedProgramId}
+        onProgramChange={setSelectedProgramId}
+      />
     </AppLayout>
   )
 }

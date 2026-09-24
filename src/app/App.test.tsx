@@ -29,7 +29,9 @@ describe('catálogo inicial', () => {
     expect(
       await screen.findByRole('heading', { name: 'Ingeniería de Sistemas' }),
     ).toBeVisible()
-    expect(screen.queryByRole('status')).not.toBeInTheDocument()
+    expect(
+      screen.queryByText('Cargando oferta académica…'),
+    ).not.toBeInTheDocument()
   })
 
   it('permite reintentar después de un fallo de red', async () => {
