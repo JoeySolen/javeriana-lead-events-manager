@@ -1,4 +1,5 @@
 import type { PropsWithChildren } from 'react'
+import { ThemeSwitch } from './ThemeSwitch'
 import logo from '../../assets/logo-javeriana.png'
 
 export function AppLayout({ children }: PropsWithChildren) {
@@ -30,6 +31,7 @@ export function AppLayout({ children }: PropsWithChildren) {
             aria-label="Principal"
             className="flex w-full flex-wrap items-center justify-between gap-3 lg:w-auto lg:justify-end"
           >
+            <ThemeSwitch />
             <a
               href="#oferta"
               className="hidden min-h-11 items-center rounded-control px-3 text-sm font-bold text-ink-soft transition-colors duration-300 hover:text-brand sm:inline-flex"

@@ -33,6 +33,36 @@
   --radius-media: 1.25rem;
 }
 
+/* Dark adaptation: blue actions and yellow accents retain the visual identity. */
+:root {
+  color-scheme: light;
+}
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --color-brand: #9cc5ff;
+  --color-brand-hover: #c1dbff;
+  --color-brand-deep: #dceaff;
+  --color-brand-soft: rgb(156 197 255 / 0.1);
+  --color-brand-line: rgb(156 197 255 / 0.35);
+  --color-on-brand: #101923;
+  --color-page: #101923;
+  --color-card: #192633;
+  --color-ink: #f1f5f9;
+  --color-ink-soft: #d1dce8;
+  --color-ink-muted: #aebed0;
+  --color-line: #3b4e61;
+  --color-field: #899eb4;
+  --color-disabled: #75899f;
+  --color-success-ink: #8de1b0;
+  --color-success-soft: #18382c;
+  --color-danger-ink: #ffaaaa;
+  --color-danger-soft: #3e252d;
+}
+
+:root[data-theme='dark'] .brand-logo {
+  filter: brightness(0) invert(1);
+}
+
 @layer base {
   html {
     scroll-padding-top: 1.5rem;
@@ -59,6 +89,7 @@
     outline: 3px solid var(--color-brand);
     outline-offset: 3px;
   }
+  /* Fixed dark text: --color-ink turns light in dark mode (1.6:1 on yellow). */
   ::selection {
     background: var(--color-accent);
     color: #22272b;
