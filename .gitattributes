@@ -1,0 +1,6 @@
+# Keep LF everywhere (Prettier and .editorconfig expect it), regardless of core.autocrlf.
+* text=auto eol=lf
+
+# Binary assets: never convert.
+*.png binary
+*.jpg binary
