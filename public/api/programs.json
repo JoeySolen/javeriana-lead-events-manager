@@ -1,20 +1,1424 @@
 [
   {
-    "id": "ing-sistemas",
+    "id": "administracion-de-empresas",
+    "name": "Administración de Empresas",
+    "category": "Pregrado",
+    "description": "Carrera profesional de la Facultad de Ciencias Económicas y Administrativas."
+  },
+  {
+    "id": "antropologia",
+    "name": "Antropología",
+    "category": "Pregrado",
+    "description": "Carrera profesional de la Facultad de Ciencias Sociales."
+  },
+  {
+    "id": "arquitectura",
+    "name": "Arquitectura",
+    "category": "Pregrado",
+    "description": "Carrera profesional de la Facultad de Arquitectura y Diseño."
+  },
+  {
+    "id": "artes-escenicas",
+    "name": "Artes Escénicas",
+    "category": "Pregrado",
+    "description": "Carrera profesional de la Facultad de Artes."
+  },
+  {
+    "id": "artes-visuales",
+    "name": "Artes Visuales",
+    "category": "Pregrado",
+    "description": "Carrera profesional de la Facultad de Artes."
+  },
+  {
+    "id": "bacteriologia",
+    "name": "Bacteriología",
+    "category": "Pregrado",
+    "description": "Carrera profesional de la Facultad de Ciencias."
+  },
+  {
+    "id": "bioingenieria",
+    "name": "Bioingeniería",
+    "category": "Pregrado",
+    "description": "Carrera profesional de la Facultad de Ingeniería."
+  },
+  {
+    "id": "biologia",
+    "name": "Biología",
+    "category": "Pregrado",
+    "description": "Carrera profesional de la Facultad de Ciencias."
+  },
+  {
+    "id": "ciencia-de-datos",
+    "name": "Ciencia de Datos",
+    "category": "Pregrado",
+    "description": "Carrera profesional de la Facultad de Ciencias."
+  },
+  {
+    "id": "ciencia-de-la-informacion-bibliotecologia-y-archivistica",
+    "name": "Ciencia de la Información, Bibliotecología y Archivística",
+    "category": "Pregrado",
+    "description": "Carrera profesional de la Facultad de Comunicación y Lenguaje."
+  },
+  {
+    "id": "ciencia-politica",
+    "name": "Ciencia Política",
+    "category": "Pregrado",
+    "description": "Carrera profesional de la Facultad de Ciencias Políticas y Relaciones Internacionales."
+  },
+  {
+    "id": "comunicacion-social",
+    "name": "Comunicación Social",
+    "category": "Pregrado",
+    "description": "Carrera profesional de la Facultad de Comunicación y Lenguaje."
+  },
+  {
+    "id": "contaduria-publica",
+    "name": "Contaduría Pública",
+    "category": "Pregrado",
+    "description": "Carrera profesional de la Facultad de Ciencias Económicas y Administrativas."
+  },
+  {
+    "id": "derecho",
+    "name": "Derecho",
+    "category": "Pregrado",
+    "description": "Carrera profesional de la Facultad de Ciencias Jurídicas."
+  },
+  {
+    "id": "diseno-industrial",
+    "name": "Diseño Industrial",
+    "category": "Pregrado",
+    "description": "Carrera profesional de la Facultad de Arquitectura y Diseño."
+  },
+  {
+    "id": "ecologia",
+    "name": "Ecología",
+    "category": "Pregrado",
+    "description": "Carrera profesional de la Facultad de Estudios Ambientales y Rurales."
+  },
+  {
+    "id": "economia",
+    "name": "Economía",
+    "category": "Pregrado",
+    "description": "Carrera profesional de la Facultad de Ciencias Económicas y Administrativas."
+  },
+  {
+    "id": "enfermeria",
+    "name": "Enfermería",
+    "category": "Pregrado",
+    "description": "Carrera profesional de la Facultad de Enfermería."
+  },
+  {
+    "id": "estudios-literarios",
+    "name": "Estudios Literarios",
+    "category": "Pregrado",
+    "description": "Carrera profesional de la Facultad de Ciencias Sociales."
+  },
+  {
+    "id": "estudios-musicales",
+    "name": "Estudios Musicales",
+    "category": "Pregrado",
+    "description": "Carrera profesional de la Facultad de Artes."
+  },
+  {
+    "id": "filosofia",
+    "name": "Filosofía",
+    "category": "Pregrado",
+    "description": "Carrera profesional de la Facultad de Filosofía."
+  },
+  {
+    "id": "finanzas",
+    "name": "Finanzas",
+    "category": "Pregrado",
+    "description": "Carrera profesional de la Facultad de Ciencias Económicas y Administrativas."
+  },
+  {
+    "id": "historia",
+    "name": "Historia",
+    "category": "Pregrado",
+    "description": "Carrera profesional de la Facultad de Ciencias Sociales."
+  },
+  {
+    "id": "ingenieria-civil",
+    "name": "Ingeniería Civil",
+    "category": "Pregrado",
+    "description": "Carrera profesional de la Facultad de Ingeniería."
+  },
+  {
+    "id": "ingenieria-de-sistemas",
     "name": "Ingeniería de Sistemas",
     "category": "Pregrado",
-    "description": "Diseña soluciones tecnológicas y descubre nuevas formas de transformar el mundo con software."
+    "description": "Carrera profesional de la Facultad de Ingeniería."
   },
   {
-    "id": "maestria-analitica",
-    "name": "Maestría en Analítica de Datos",
+    "id": "ingenieria-electronica",
+    "name": "Ingeniería Electrónica",
+    "category": "Pregrado",
+    "description": "Carrera profesional de la Facultad de Ingeniería."
+  },
+  {
+    "id": "ingenieria-en-redes-y-telecomunicaciones",
+    "name": "Ingeniería en Redes y Telecomunicaciones",
+    "category": "Pregrado",
+    "description": "Carrera profesional de la Facultad de Ingeniería."
+  },
+  {
+    "id": "ingenieria-industrial",
+    "name": "Ingeniería Industrial",
+    "category": "Pregrado",
+    "description": "Carrera profesional de la Facultad de Ingeniería."
+  },
+  {
+    "id": "ingenieria-mecanica",
+    "name": "Ingeniería Mecánica",
+    "category": "Pregrado",
+    "description": "Carrera profesional de la Facultad de Ingeniería."
+  },
+  {
+    "id": "ingenieria-mecatronica",
+    "name": "Ingeniería Mecatrónica",
+    "category": "Pregrado",
+    "description": "Carrera profesional de la Facultad de Ingeniería."
+  },
+  {
+    "id": "licenciatura-en-ciencias-naturales-y-educacion-ambiental",
+    "name": "Licenciatura en Ciencias Naturales y Educación Ambiental",
+    "category": "Pregrado",
+    "description": "Carrera profesional de la Facultad de Educación."
+  },
+  {
+    "id": "licenciatura-en-educacion-fisica",
+    "name": "Licenciatura en Educación Física",
+    "category": "Pregrado",
+    "description": "Carrera profesional de la Facultad de Educación."
+  },
+  {
+    "id": "licenciatura-en-educacion-infantil",
+    "name": "Licenciatura en Educación Infantil",
+    "category": "Pregrado",
+    "description": "Carrera profesional de la Facultad de Educación."
+  },
+  {
+    "id": "licenciatura-en-filosofia",
+    "name": "Licenciatura en Filosofía",
+    "category": "Pregrado",
+    "description": "Carrera profesional de la Facultad de Educación."
+  },
+  {
+    "id": "licenciatura-en-lenguas-modernas-con-enfasis-en-ingles-y-frances",
+    "name": "Licenciatura en Lenguas Modernas con Énfasis en Inglés y Francés",
+    "category": "Pregrado",
+    "description": "Carrera profesional de la Facultad de Comunicación y Lenguaje."
+  },
+  {
+    "id": "licenciatura-en-literatura-y-lengua-castellana",
+    "name": "Licenciatura en Literatura y Lengua Castellana",
+    "category": "Pregrado",
+    "description": "Carrera profesional de la Facultad de Educación."
+  },
+  {
+    "id": "licenciatura-en-teologia",
+    "name": "Licenciatura en Teología",
+    "category": "Pregrado",
+    "description": "Carrera profesional de la Facultad de Teología."
+  },
+  {
+    "id": "matematicas",
+    "name": "Matemáticas",
+    "category": "Pregrado",
+    "description": "Carrera profesional de la Facultad de Ciencias."
+  },
+  {
+    "id": "medicina",
+    "name": "Medicina",
+    "category": "Pregrado",
+    "description": "Carrera profesional de la Facultad de Medicina."
+  },
+  {
+    "id": "microbiologia-industrial",
+    "name": "Microbiología Industrial",
+    "category": "Pregrado",
+    "description": "Carrera profesional de la Facultad de Ciencias."
+  },
+  {
+    "id": "negocios-internacionales",
+    "name": "Negocios Internacionales",
+    "category": "Pregrado",
+    "description": "Carrera profesional interdisciplinar. Facultades: Ciencias Económicas y Administrativas; Ciencias Políticas y Relaciones Internacionales."
+  },
+  {
+    "id": "nutricion-y-dietetica",
+    "name": "Nutrición y Dietética",
+    "category": "Pregrado",
+    "description": "Carrera profesional de la Facultad de Ciencias."
+  },
+  {
+    "id": "odontologia",
+    "name": "Odontología",
+    "category": "Pregrado",
+    "description": "Carrera profesional de la Facultad de Odontología."
+  },
+  {
+    "id": "psicologia",
+    "name": "Psicología",
+    "category": "Pregrado",
+    "description": "Carrera profesional de la Facultad de Psicología."
+  },
+  {
+    "id": "quimica-farmaceutica",
+    "name": "Química Farmacéutica",
+    "category": "Pregrado",
+    "description": "Carrera profesional de la Facultad de Ciencias."
+  },
+  {
+    "id": "relaciones-internacionales",
+    "name": "Relaciones Internacionales",
+    "category": "Pregrado",
+    "description": "Carrera profesional de la Facultad de Ciencias Políticas y Relaciones Internacionales."
+  },
+  {
+    "id": "sociologia",
+    "name": "Sociología",
+    "category": "Pregrado",
+    "description": "Carrera profesional de la Facultad de Ciencias Sociales."
+  },
+  {
+    "id": "teologia",
+    "name": "Teología",
+    "category": "Pregrado",
+    "description": "Carrera profesional de la Facultad de Teología."
+  },
+  {
+    "id": "doctorado-en-ciencia-y-tecnologia-de-los-materiales",
+    "name": "Doctorado en Ciencia y Tecnología de los Materiales",
     "category": "Posgrado",
-    "description": "Convierte datos en decisiones y amplía tu perspectiva sobre los desafíos de las organizaciones."
+    "description": "Doctorado de la Facultad de Ciencias."
   },
   {
-    "id": "diplomado-ux",
-    "name": "Diplomado en Diseño de Experiencias",
-    "category": "Educación Continua",
-    "description": "Crea experiencias digitales centradas en las personas, desde la investigación hasta el prototipo."
+    "id": "doctorado-en-ciencias-biologicas",
+    "name": "Doctorado en Ciencias Biológicas",
+    "category": "Posgrado",
+    "description": "Doctorado de la Facultad de Ciencias."
+  },
+  {
+    "id": "doctorado-en-ciencias-juridicas",
+    "name": "Doctorado en Ciencias Jurídicas",
+    "category": "Posgrado",
+    "description": "Doctorado de la Facultad de Ciencias Jurídicas."
+  },
+  {
+    "id": "doctorado-en-ciencias-sociales-y-humanas",
+    "name": "Doctorado en Ciencias Sociales y Humanas",
+    "category": "Posgrado",
+    "description": "Doctorado interdisciplinar. Facultades: Ciencias Económicas y Administrativas; Ciencias Jurídicas; Ciencias Sociales; Ciencias Políticas y Relaciones Internacionales; Comunicación y Lenguaje; Educación; Psicología."
+  },
+  {
+    "id": "doctorado-en-comunicacion-lenguajes-e-informacion",
+    "name": "Doctorado en Comunicación, Lenguajes e Información",
+    "category": "Posgrado",
+    "description": "Doctorado de la Facultad de Comunicación y Lenguaje."
+  },
+  {
+    "id": "doctorado-en-economia",
+    "name": "Doctorado en Economía",
+    "category": "Posgrado",
+    "description": "Doctorado de la Facultad de Ciencias Económicas y Administrativas."
+  },
+  {
+    "id": "doctorado-en-epidemiologia-clinica",
+    "name": "Doctorado en Epidemiología Clínica",
+    "category": "Posgrado",
+    "description": "Doctorado de la Facultad de Medicina."
+  },
+  {
+    "id": "doctorado-en-estudios-ambientales-y-rurales",
+    "name": "Doctorado en Estudios Ambientales y Rurales",
+    "category": "Posgrado",
+    "description": "Doctorado de la Facultad de Estudios Ambientales y Rurales."
+  },
+  {
+    "id": "doctorado-en-filosofia",
+    "name": "Doctorado en Filosofía",
+    "category": "Posgrado",
+    "description": "Doctorado de la Facultad de Filosofía."
+  },
+  {
+    "id": "doctorado-en-ingenieria",
+    "name": "Doctorado en Ingeniería",
+    "category": "Posgrado",
+    "description": "Doctorado de la Facultad de Ingeniería."
+  },
+  {
+    "id": "doctorado-en-neurociencias",
+    "name": "Doctorado en Neurociencias",
+    "category": "Posgrado",
+    "description": "Doctorado de la Facultad de Medicina."
+  },
+  {
+    "id": "doctorado-en-psicologia",
+    "name": "Doctorado en Psicología",
+    "category": "Posgrado",
+    "description": "Doctorado de la Facultad de Psicología."
+  },
+  {
+    "id": "doctorado-en-teologia",
+    "name": "Doctorado en Teología",
+    "category": "Posgrado",
+    "description": "Doctorado de la Facultad de Teología."
+  },
+  {
+    "id": "especializacion-en-administracion-de-salud",
+    "name": "Especialización en Administración de Salud",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Ciencias Económicas y Administrativas."
+  },
+  {
+    "id": "especializacion-en-analisis-quimico-instrumental",
+    "name": "Especialización en Análisis Químico Instrumental",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Ciencias."
+  },
+  {
+    "id": "especializacion-en-anestesiologia",
+    "name": "Especialización en Anestesiología",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Medicina."
+  },
+  {
+    "id": "especializacion-en-arquitectura-empresarial-de-software",
+    "name": "Especialización en Arquitectura Empresarial de Software",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Ingeniería."
+  },
+  {
+    "id": "especializacion-en-aseguramiento-y-control-interno-bogota",
+    "name": "Especialización en Aseguramiento y Control Interno - (Bogotá)",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Ciencias Económicas y Administrativas."
+  },
+  {
+    "id": "especializacion-en-cardiologia",
+    "name": "Especialización en Cardiología",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Medicina."
+  },
+  {
+    "id": "especializacion-en-cardiologia-intervencionista-y-hemodinamia",
+    "name": "Especialización en Cardiología Intervencionista y Hemodinamia",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Medicina."
+  },
+  {
+    "id": "especializacion-en-cirugia-cardiovascular",
+    "name": "Especialización en Cirugía Cardiovascular",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Medicina."
+  },
+  {
+    "id": "especializacion-en-cirugia-de-mano",
+    "name": "Especialización en Cirugía de Mano",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Medicina."
+  },
+  {
+    "id": "especializacion-en-cirugia-general",
+    "name": "Especialización en Cirugía General",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Medicina."
+  },
+  {
+    "id": "especializacion-en-cirugia-maxilofacial",
+    "name": "Especialización en Cirugía Maxilofacial",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Odontología."
+  },
+  {
+    "id": "especializacion-en-cirugia-oncologica",
+    "name": "Especialización en Cirugía Oncológica",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Medicina."
+  },
+  {
+    "id": "especializacion-en-cirugia-plastica-reconstructiva-y-estetica",
+    "name": "Especialización en Cirugía Plástica Reconstructiva y Estética",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Medicina."
+  },
+  {
+    "id": "especializacion-en-comunicacion-organizacional",
+    "name": "Especialización en Comunicación Organizacional",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Comunicación y Lenguaje."
+  },
+  {
+    "id": "especializacion-en-contabilidad-financiera-internacional-bogota",
+    "name": "Especialización en Contabilidad Financiera Internacional (Bogotá)",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Ciencias Económicas y Administrativas."
+  },
+  {
+    "id": "especializacion-en-contabilidad-gerencial",
+    "name": "Especialización en Contabilidad Gerencial",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Ciencias Económicas y Administrativas."
+  },
+  {
+    "id": "especializacion-en-derecho-administrativo",
+    "name": "Especialización en Derecho Administrativo",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Ciencias Jurídicas."
+  },
+  {
+    "id": "especializacion-en-derecho-comercial",
+    "name": "Especialización en Derecho Comercial",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Ciencias Jurídicas."
+  },
+  {
+    "id": "especializacion-en-derecho-de-familia",
+    "name": "Especialización en Derecho de Familia",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Ciencias Jurídicas."
+  },
+  {
+    "id": "especializacion-en-derecho-de-la-competencia-bogota",
+    "name": "Especialización en Derecho de la Competencia (Bogotá)",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Ciencias Jurídicas."
+  },
+  {
+    "id": "especializacion-en-derecho-de-la-seguridad-social",
+    "name": "Especialización en Derecho de la Seguridad Social",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Ciencias Jurídicas."
+  },
+  {
+    "id": "especializacion-en-derecho-de-seguros",
+    "name": "Especialización en Derecho de Seguros",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Ciencias Jurídicas."
+  },
+  {
+    "id": "especializacion-en-derecho-de-sociedades",
+    "name": "Especialización en Derecho de Sociedades",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Ciencias Jurídicas."
+  },
+  {
+    "id": "especializacion-en-derecho-financiero-y-mercado-de-valores",
+    "name": "Especialización en Derecho Financiero y Mercado de Valores",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Ciencias Jurídicas."
+  },
+  {
+    "id": "especializacion-en-derecho-laboral",
+    "name": "Especialización en Derecho Laboral",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Ciencias Jurídicas."
+  },
+  {
+    "id": "especializacion-en-derecho-matrimonial-canonico-virtual",
+    "name": "Especialización en Derecho Matrimonial Canónico - Virtual",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Derecho Canónico."
+  },
+  {
+    "id": "especializacion-en-derecho-sustantivo-y-contencioso-constitucional",
+    "name": "Especialización en Derecho Sustantivo y Contencioso Constitucional",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Ciencias Jurídicas."
+  },
+  {
+    "id": "especializacion-en-derecho-tributario",
+    "name": "Especialización en Derecho Tributario",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Ciencias Jurídicas."
+  },
+  {
+    "id": "especializacion-en-derecho-urbanistico-bogota",
+    "name": "Especialización en Derecho Urbanístico - (Bogotá)",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Ciencias Jurídicas."
+  },
+  {
+    "id": "especializacion-en-dermatologia",
+    "name": "Especialización en Dermatología",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Medicina."
+  },
+  {
+    "id": "especializacion-en-economia",
+    "name": "Especialización en Economía",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Ciencias Económicas y Administrativas."
+  },
+  {
+    "id": "especializacion-en-educacion-para-profesionales-de-la-salud-virtual",
+    "name": "Especialización en Educación para Profesionales de la Salud - Virtual",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Medicina."
+  },
+  {
+    "id": "especializacion-en-electrofisiologia-cardiaca",
+    "name": "Especialización en Electrofisiología Cardíaca",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Medicina."
+  },
+  {
+    "id": "especializacion-en-endocrinologia",
+    "name": "Especialización en Endocrinología",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Medicina."
+  },
+  {
+    "id": "especializacion-en-endodoncia",
+    "name": "Especialización en Endodoncia",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Odontología."
+  },
+  {
+    "id": "especializacion-en-enfermeria-en-cuidado-critico",
+    "name": "Especialización en Enfermeria en Cuidado Crítico",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Enfermería."
+  },
+  {
+    "id": "especializacion-en-enfermeria-pediatrica",
+    "name": "Especialización en Enfermería Pediátrica",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Enfermería."
+  },
+  {
+    "id": "especializacion-en-gastroenterologia",
+    "name": "Especialización en Gastroenterología",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Medicina."
+  },
+  {
+    "id": "especializacion-en-genetica-medica",
+    "name": "Especialización en Genética Médica",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Medicina."
+  },
+  {
+    "id": "especializacion-en-geotecnia-vial-y-pavimentos",
+    "name": "Especialización en Geotecnia Vial y Pavimentos",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Ingeniería."
+  },
+  {
+    "id": "especializacion-en-gerencia-de-construcciones",
+    "name": "Especialización en Gerencia de Construcciones",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Ingeniería."
+  },
+  {
+    "id": "especializacion-en-gerencia-de-la-calidad-de-los-servicios-de-salud",
+    "name": "Especialización en Gerencia de la Calidad de los Servicios de Salud",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Ciencias Económicas y Administrativas."
+  },
+  {
+    "id": "especializacion-en-gerencia-de-proyectos-de-diseno",
+    "name": "Especialización en Gerencia de Proyectos de Diseño",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Arquitectura y Diseño."
+  },
+  {
+    "id": "especializacion-en-gerencia-de-proyectos-de-tecnologia-de-la-informacion",
+    "name": "Especialización en Gerencia de Proyectos de Tecnología de la Información",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Ingeniería."
+  },
+  {
+    "id": "especializacion-en-gerencia-del-talento-humano",
+    "name": "Especialización en Gerencia del Talento Humano",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Ciencias Económicas y Administrativas."
+  },
+  {
+    "id": "especializacion-en-gerencia-estrategica-de-la-innovacion",
+    "name": "Especialización en Gerencia Estratégica de la Innovación",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Ciencias Económicas y Administrativas."
+  },
+  {
+    "id": "especializacion-en-gerencia-financiera",
+    "name": "Especialización en Gerencia Financiera",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Ciencias Económicas y Administrativas."
+  },
+  {
+    "id": "especializacion-en-gerencia-hospitalaria",
+    "name": "Especialización en Gerencia Hospitalaria",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Ciencias Económicas y Administrativas."
+  },
+  {
+    "id": "especializacion-en-geriatria",
+    "name": "Especialización en Geriatría",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Medicina."
+  },
+  {
+    "id": "especializacion-en-gestion-de-empresas-de-la-economia-social-y-solidaria-virtual",
+    "name": "Especialización en Gestión de Empresas de la Economía Social y Solidaria - Virtual",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Estudios Ambientales y Rurales."
+  },
+  {
+    "id": "especializacion-en-ginecologia-y-obstetricia",
+    "name": "Especialización en Ginecología y Obstetricia",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Medicina."
+  },
+  {
+    "id": "especializacion-en-gobierno-y-gestion-publica-territoriales-barranquilla",
+    "name": "Especialización en Gobierno y Gestión Pública Territoriales - (Barranquilla)",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Ciencias Políticas y Relaciones Internacionales."
+  },
+  {
+    "id": "especializacion-en-gobierno-y-gestion-publica-territoriales-bogota",
+    "name": "Especialización en Gobierno y Gestión Pública Territoriales - (Bogotá)",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Ciencias Políticas y Relaciones Internacionales."
+  },
+  {
+    "id": "especializacion-en-hematologia-en-el-laboratorio-clinico-y-manejo-del-banco-de-sangre",
+    "name": "Especialización en Hematología en el Laboratorio Clínico y Manejo del Banco de Sangre",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Ciencias."
+  },
+  {
+    "id": "especializacion-en-infectologia",
+    "name": "Especialización en Infectología",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Medicina."
+  },
+  {
+    "id": "especializacion-en-ingenieria-de-operaciones-en-manufactura-y-servicios",
+    "name": "Especialización en Ingeniería de Operaciones en Manufactura y Servicios",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Ingeniería."
+  },
+  {
+    "id": "especializacion-en-inteligencia-artificial-virtual",
+    "name": "Especialización en Inteligencia Artificial - Virtual",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Ingeniería."
+  },
+  {
+    "id": "especializacion-en-inteligencia-de-los-negocios-internacionales",
+    "name": "Especialización en Inteligencia de los Negocios Internacionales",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Ciencias Económicas y Administrativas."
+  },
+  {
+    "id": "especializacion-en-liderazgo-para-la-gestion-social-virtual",
+    "name": "Especialización en Liderazgo para la Gestión Social - Virtual",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Educación."
+  },
+  {
+    "id": "especializacion-en-literatura-infantil-y-juvenil",
+    "name": "Especialización en Literatura Infantil y Juvenil",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Ciencias Sociales."
+  },
+  {
+    "id": "especializacion-en-marketing-estrategico",
+    "name": "Especialización en Marketing Estratégico",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Ciencias Económicas y Administrativas."
+  },
+  {
+    "id": "especializacion-en-mastologia",
+    "name": "Especialización en Mastología",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Medicina."
+  },
+  {
+    "id": "especializacion-en-medicina-critica-y-cuidado-intensivo",
+    "name": "Especialización en Medicina Crítica y Cuidado Intensivo",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Medicina."
+  },
+  {
+    "id": "especializacion-en-medicina-de-urgencias",
+    "name": "Especialización en Medicina de Urgencias",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Medicina."
+  },
+  {
+    "id": "especializacion-en-medicina-del-dolor-y-cuidados-paliativos",
+    "name": "Especialización en Medicina del Dolor y Cuidados Paliativos",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Medicina."
+  },
+  {
+    "id": "especializacion-en-medicina-del-dolor-y-cuidados-paliativos-pediatricos",
+    "name": "Especialización en Medicina del Dolor y Cuidados Paliativos Pediátricos",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Medicina."
+  },
+  {
+    "id": "especializacion-en-medicina-familiar",
+    "name": "Especialización en Medicina Familiar",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Medicina."
+  },
+  {
+    "id": "especializacion-en-medicina-interna",
+    "name": "Especialización en Medicina Interna",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Medicina."
+  },
+  {
+    "id": "especializacion-en-microbiologia-medica",
+    "name": "Especialización en Microbiología Médica",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Ciencias."
+  },
+  {
+    "id": "especializacion-en-nefrologia",
+    "name": "Especialización en Nefrología",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Medicina."
+  },
+  {
+    "id": "especializacion-en-neonatologia",
+    "name": "Especialización en Neonatología",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Medicina."
+  },
+  {
+    "id": "especializacion-en-neumologia",
+    "name": "Especialización en Neumología",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Medicina."
+  },
+  {
+    "id": "especializacion-en-neurocirugia",
+    "name": "Especialización en Neurocirugía",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Medicina."
+  },
+  {
+    "id": "especializacion-en-neurologia",
+    "name": "Especialización en Neurología",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Medicina."
+  },
+  {
+    "id": "especializacion-en-odontopediatria",
+    "name": "Especialización en Odontopediatría",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Odontología."
+  },
+  {
+    "id": "especializacion-en-oftalmologia",
+    "name": "Especialización en Oftalmología",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Medicina."
+  },
+  {
+    "id": "especializacion-en-oncologia-clinica",
+    "name": "Especialización en Oncología Clínica",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Medicina."
+  },
+  {
+    "id": "especializacion-en-opinion-publica-y-mercadeo-politico",
+    "name": "Especialización en Opinión Pública y Mercadeo Político",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Ciencias Políticas y Relaciones Internacionales."
+  },
+  {
+    "id": "especializacion-en-orientacion-socio-ocupacional",
+    "name": "Especialización en Orientación Socio-Ocupacional",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Psicología."
+  },
+  {
+    "id": "especializacion-en-ortodoncia",
+    "name": "Especialización en Ortodoncia",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Odontología."
+  },
+  {
+    "id": "especializacion-en-ortopedia-y-traumatologia",
+    "name": "Especialización en Ortopedia y Traumatología",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Medicina."
+  },
+  {
+    "id": "especializacion-en-ortopedia-y-traumatologia-pediatrica",
+    "name": "Especialización en Ortopedia y Traumatología Pediátrica",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Medicina."
+  },
+  {
+    "id": "especializacion-en-otorrinolaringologia",
+    "name": "Especialización en Otorrinolaringología",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Medicina."
+  },
+  {
+    "id": "especializacion-en-patologia",
+    "name": "Especialización en Patología",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Medicina."
+  },
+  {
+    "id": "especializacion-en-patologia-y-cirugia-bucal",
+    "name": "Especialización en Patología y Cirugía Bucal",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Odontología."
+  },
+  {
+    "id": "especializacion-en-pediatria",
+    "name": "Especialización en Pediatría",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Medicina."
+  },
+  {
+    "id": "especializacion-en-periodoncia",
+    "name": "Especialización en Periodoncia",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Odontología."
+  },
+  {
+    "id": "especializacion-en-psiquiatria",
+    "name": "Especialización en Psiquiatría",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Medicina."
+  },
+  {
+    "id": "especializacion-en-psiquiatria-de-enlace",
+    "name": "Especialización en Psiquiatría de Enlace",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Medicina."
+  },
+  {
+    "id": "especializacion-en-psiquiatria-de-ninos-y-adolescentes",
+    "name": "Especialización en Psiquiatría de Niños y Adolescentes",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Medicina."
+  },
+  {
+    "id": "especializacion-en-psiquiatria-geriatrica",
+    "name": "Especialización en Psiquiatría Geriátrica",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Medicina."
+  },
+  {
+    "id": "especializacion-en-radiologia-e-imagenes-diagnosticas",
+    "name": "Especialización en Radiología e Imágenes Diagnósticas",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Medicina."
+  },
+  {
+    "id": "especializacion-en-radioterapia",
+    "name": "Especialización en Radioterapia",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Medicina."
+  },
+  {
+    "id": "especializacion-en-rehabilitacion-oral",
+    "name": "Especialización en Rehabilitación Oral",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Odontología."
+  },
+  {
+    "id": "especializacion-en-resolucion-de-conflictos",
+    "name": "Especialización en Resolución de Conflictos",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Ciencias Políticas y Relaciones Internacionales."
+  },
+  {
+    "id": "especializacion-en-reumatologia",
+    "name": "Especialización en Reumatología",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Medicina."
+  },
+  {
+    "id": "especializacion-en-revisoria-fiscal",
+    "name": "Especialización en Revisoría Fiscal",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Ciencias Económicas y Administrativas."
+  },
+  {
+    "id": "especializacion-en-seguridad-y-salud-en-el-trabajo",
+    "name": "Especialización en Seguridad y Salud en el Trabajo",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Enfermería."
+  },
+  {
+    "id": "especializacion-en-sistemas-gerenciales-de-ingenieria",
+    "name": "Especialización en Sistemas Gerenciales de Ingeniería",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Ingeniería."
+  },
+  {
+    "id": "especializacion-en-tecnologia-de-la-construccion-en-edificaciones",
+    "name": "Especialización en Tecnología de la Construcción en Edificaciones",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Ingeniería."
+  },
+  {
+    "id": "especializacion-en-television-expandida-y-transmedia",
+    "name": "Especialización en Televisión Expandida y Transmedia",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Comunicación y Lenguaje."
+  },
+  {
+    "id": "especializacion-en-urologia",
+    "name": "Especialización en Urología",
+    "category": "Posgrado",
+    "description": "Especialización de la Facultad de Medicina."
+  },
+  {
+    "id": "maestria-en-administracion-mba-profesional",
+    "name": "Maestría en Administración - MBA Profesional",
+    "category": "Posgrado",
+    "description": "Maestría de la Facultad de Ciencias Económicas y Administrativas."
+  },
+  {
+    "id": "maestria-en-administracion-de-salud",
+    "name": "Maestría en Administración de Salud",
+    "category": "Posgrado",
+    "description": "Maestría de la Facultad de Ciencias Económicas y Administrativas."
+  },
+  {
+    "id": "maestria-en-analitica-para-la-inteligencia-de-negocios",
+    "name": "Maestría en Analítica para la Inteligencia de Negocios",
+    "category": "Posgrado",
+    "description": "Maestría de la Facultad de Ingeniería."
+  },
+  {
+    "id": "maestria-en-archivistica-historica-y-memoria-bogota",
+    "name": "Maestría en Archivística Histórica y Memoria - (Bogotá)",
+    "category": "Posgrado",
+    "description": "Maestría interdisciplinar. Facultades: Ciencias Sociales; Comunicación y Lenguaje."
+  },
+  {
+    "id": "maestria-en-arquitectura-del-paisaje",
+    "name": "Maestría en Arquitectura del Paisaje",
+    "category": "Posgrado",
+    "description": "Maestría de la Facultad de Arquitectura y Diseño."
+  },
+  {
+    "id": "maestria-en-aseguramiento-y-compliance-con-enfoque-en-tecnologias-digitales",
+    "name": "Maestría en Aseguramiento y Compliance con Enfoque en Tecnologías Digitales",
+    "category": "Posgrado",
+    "description": "Maestría de la Facultad de Ciencias Económicas y Administrativas."
+  },
+  {
+    "id": "maestria-en-bioestadistica",
+    "name": "Maestría en Bioestadística",
+    "category": "Posgrado",
+    "description": "Maestría de la Facultad de Medicina."
+  },
+  {
+    "id": "maestria-en-bioetica",
+    "name": "Maestría en Bioética",
+    "category": "Posgrado",
+    "description": "Maestría de la Facultad de Filosofía."
+  },
+  {
+    "id": "maestria-en-bioingenieria",
+    "name": "Maestría en Bioingeniería",
+    "category": "Posgrado",
+    "description": "Maestría de la Facultad de Ingeniería."
+  },
+  {
+    "id": "maestria-en-ciencias-biologicas",
+    "name": "Maestría en Ciencias Biológicas",
+    "category": "Posgrado",
+    "description": "Maestría de la Facultad de Ciencias."
+  },
+  {
+    "id": "maestria-en-ciencias-del-laboratorio-clinico",
+    "name": "Maestría en Ciencias del Laboratorio Clínico",
+    "category": "Posgrado",
+    "description": "Maestría de la Facultad de Ciencias."
+  },
+  {
+    "id": "maestria-en-comunicacion-tecnologia-y-sociedad",
+    "name": "Maestría en Comunicación, Tecnología y Sociedad",
+    "category": "Posgrado",
+    "description": "Maestría de la Facultad de Comunicación y Lenguaje."
+  },
+  {
+    "id": "maestria-en-conservacion-y-uso-de-biodiversidad",
+    "name": "Maestría en Conservación y Uso de Biodiversidad",
+    "category": "Posgrado",
+    "description": "Maestría de la Facultad de Estudios Ambientales y Rurales."
+  },
+  {
+    "id": "maestria-en-creacion-audiovisual",
+    "name": "Maestría en Creación Audiovisual",
+    "category": "Posgrado",
+    "description": "Maestría de la Facultad de Artes."
+  },
+  {
+    "id": "maestria-en-derecho-administrativo",
+    "name": "Maestría en Derecho Administrativo",
+    "category": "Posgrado",
+    "description": "Maestría de la Facultad de Ciencias Jurídicas."
+  },
+  {
+    "id": "maestria-en-derecho-canonico",
+    "name": "Maestría en Derecho Canónico",
+    "category": "Posgrado",
+    "description": "Maestría de la Facultad de Derecho Canónico."
+  },
+  {
+    "id": "maestria-en-derecho-constitucional",
+    "name": "Maestría en Derecho Constitucional",
+    "category": "Posgrado",
+    "description": "Maestría de la Facultad de Ciencias Jurídicas."
+  },
+  {
+    "id": "maestria-en-derecho-de-seguros",
+    "name": "Maestría en Derecho de Seguros",
+    "category": "Posgrado",
+    "description": "Maestría de la Facultad de Ciencias Jurídicas."
+  },
+  {
+    "id": "maestria-en-derecho-economico",
+    "name": "Maestría en Derecho Económico",
+    "category": "Posgrado",
+    "description": "Maestría de la Facultad de Ciencias Jurídicas."
+  },
+  {
+    "id": "maestria-en-derecho-laboral-y-de-la-seguridad-social",
+    "name": "Maestría en Derecho Laboral y de la Seguridad Social",
+    "category": "Posgrado",
+    "description": "Maestría de la Facultad de Ciencias Jurídicas."
+  },
+  {
+    "id": "maestria-en-desarrollo-rural",
+    "name": "Maestría en Desarrollo Rural",
+    "category": "Posgrado",
+    "description": "Maestría de la Facultad de Estudios Ambientales y Rurales."
+  },
+  {
+    "id": "maestria-en-diseno-para-la-innovacion-de-productos-y-servicios",
+    "name": "Maestría en Diseño para la Innovación de Productos y Servicios",
+    "category": "Posgrado",
+    "description": "Maestría de la Facultad de Arquitectura y Diseño."
+  },
+  {
+    "id": "maestria-en-economia",
+    "name": "Maestría en Economía",
+    "category": "Posgrado",
+    "description": "Maestría de la Facultad de Ciencias Económicas y Administrativas."
+  },
+  {
+    "id": "maestria-en-economia-de-la-salud",
+    "name": "Maestría en Economía de la Salud",
+    "category": "Posgrado",
+    "description": "Maestría interdisciplinar. Facultades: Ciencias Económicas y Administrativas; Medicina."
+  },
+  {
+    "id": "maestria-en-educacion",
+    "name": "Maestría en Educación",
+    "category": "Posgrado",
+    "description": "Maestría de la Facultad de Educación."
+  },
+  {
+    "id": "maestria-en-educacion-para-la-innovacion-y-las-ciudadanias-virtual",
+    "name": "Maestría en Educación para la Innovación y las Ciudadanías - Virtual",
+    "category": "Posgrado",
+    "description": "Maestría de la Facultad de Educación."
+  },
+  {
+    "id": "maestria-en-educacion-para-profesionales-de-la-salud-virtual",
+    "name": "Maestría en Educación para Profesionales de la Salud - Virtual",
+    "category": "Posgrado",
+    "description": "Maestría de la Facultad de Medicina."
+  },
+  {
+    "id": "maestria-en-energia-y-sostenibilidad",
+    "name": "Maestría en Energía y Sostenibilidad",
+    "category": "Posgrado",
+    "description": "Maestría de la Facultad de Ingeniería."
+  },
+  {
+    "id": "maestria-en-enfermeria-en-cuidado-critico",
+    "name": "Maestría en Enfermería en Cuidado Crítico",
+    "category": "Posgrado",
+    "description": "Maestría de la Facultad de Enfermería."
+  },
+  {
+    "id": "maestria-en-enfermeria-en-cuidado-paliativo",
+    "name": "Maestría en Enfermería en Cuidado Paliativo",
+    "category": "Posgrado",
+    "description": "Maestría de la Facultad de Enfermería."
+  },
+  {
+    "id": "maestria-en-enfermeria-oncologica",
+    "name": "Maestría en Enfermería Oncológica",
+    "category": "Posgrado",
+    "description": "Maestría de la Facultad de Enfermería."
+  },
+  {
+    "id": "maestria-en-epidemiologia-clinica-bogota",
+    "name": "Maestría en Epidemiología Clínica (Bogotá)",
+    "category": "Posgrado",
+    "description": "Maestría de la Facultad de Medicina."
+  },
+  {
+    "id": "maestria-en-epidemiologia-clinica-cali",
+    "name": "Maestría en Epidemiología Clínica (Cali)",
+    "category": "Posgrado",
+    "description": "Maestría de la Facultad de Medicina."
+  },
+  {
+    "id": "maestria-en-estrategia-innovacion-y-competitividad",
+    "name": "Maestría en Estrategia, Innovación y Competitividad",
+    "category": "Posgrado",
+    "description": "Maestría de la Facultad de Ciencias Económicas y Administrativas."
+  },
+  {
+    "id": "maestria-en-estudios-afrocolombianos-bogota",
+    "name": "Maestría en Estudios Afrocolombianos - (Bogotá)",
+    "category": "Posgrado",
+    "description": "Maestría de la Facultad de Ciencias Sociales."
+  },
+  {
+    "id": "maestria-en-estudios-criticos-de-las-migraciones-contemporaneas-virtual",
+    "name": "Maestría en Estudios Críticos de las Migraciones Contemporáneas - Virtual",
+    "category": "Posgrado",
+    "description": "Maestría del Instituto Pensar."
+  },
+  {
+    "id": "maestria-en-estudios-culturales",
+    "name": "Maestría en Estudios Culturales",
+    "category": "Posgrado",
+    "description": "Maestría de la Facultad de Ciencias Sociales."
+  },
+  {
+    "id": "maestria-en-estudios-culturales-latinoamericanos-virtual",
+    "name": "Maestría en Estudios Culturales Latinoamericanos - Virtual",
+    "category": "Posgrado",
+    "description": "Maestría de la Facultad de Ciencias Sociales."
+  },
+  {
+    "id": "maestria-en-estudios-de-paz-y-resolucion-de-conflictos",
+    "name": "Maestría en Estudios de Paz y Resolución de Conflictos",
+    "category": "Posgrado",
+    "description": "Maestría de la Facultad de Ciencias Políticas y Relaciones Internacionales."
+  },
+  {
+    "id": "maestria-en-estudios-del-lenguaje",
+    "name": "Maestría en Estudios del Lenguaje",
+    "category": "Posgrado",
+    "description": "Maestría de la Facultad de Comunicación y Lenguaje."
+  },
+  {
+    "id": "maestria-en-estudios-internacionales",
+    "name": "Maestría en Estudios Internacionales",
+    "category": "Posgrado",
+    "description": "Maestría de la Facultad de Ciencias Políticas y Relaciones Internacionales."
+  },
+  {
+    "id": "maestria-en-estudios-politicos",
+    "name": "Maestría en Estudios Políticos",
+    "category": "Posgrado",
+    "description": "Maestría de la Facultad de Ciencias Políticas y Relaciones Internacionales."
+  },
+  {
+    "id": "maestria-en-filosofia",
+    "name": "Maestría en Filosofía",
+    "category": "Posgrado",
+    "description": "Maestría de la Facultad de Filosofía."
+  },
+  {
+    "id": "maestria-en-finanzas-aplicadas",
+    "name": "Maestría en Finanzas Aplicadas",
+    "category": "Posgrado",
+    "description": "Maestría de la Facultad de Ciencias Económicas y Administrativas."
+  },
+  {
+    "id": "maestria-en-fisica-medica",
+    "name": "Maestría en Física Médica",
+    "category": "Posgrado",
+    "description": "Maestría de la Facultad de Ciencias."
+  },
+  {
+    "id": "maestria-en-gerencia-de-la-sostenibilidad",
+    "name": "Maestría en Gerencia de la Sostenibilidad",
+    "category": "Posgrado",
+    "description": "Maestría de la Facultad de Ciencias Económicas y Administrativas."
+  },
+  {
+    "id": "maestria-en-gerencia-del-talento-humano",
+    "name": "Maestría en Gerencia del Talento Humano",
+    "category": "Posgrado",
+    "description": "Maestría de la Facultad de Ciencias Económicas y Administrativas."
+  },
+  {
+    "id": "maestria-en-gestion-ambiental",
+    "name": "Maestría en Gestión Ambiental",
+    "category": "Posgrado",
+    "description": "Maestría de la Facultad de Estudios Ambientales y Rurales."
+  },
+  {
+    "id": "maestria-en-gestion-inteligente-de-la-cadena-de-abastecimiento",
+    "name": "Maestría en Gestión Inteligente de la Cadena de Abastecimiento",
+    "category": "Posgrado",
+    "description": "Maestría de la Facultad de Ingeniería."
+  },
+  {
+    "id": "maestria-en-gobierno-del-territorio-y-gestion-publica",
+    "name": "Maestría en Gobierno del Territorio y Gestión Pública",
+    "category": "Posgrado",
+    "description": "Maestría de la Facultad de Ciencias Políticas y Relaciones Internacionales."
+  },
+  {
+    "id": "maestria-en-hidrosistemas",
+    "name": "Maestría en Hidrosistemas",
+    "category": "Posgrado",
+    "description": "Maestría de la Facultad de Ingeniería."
+  },
+  {
+    "id": "maestria-en-historia",
+    "name": "Maestría en Historia",
+    "category": "Posgrado",
+    "description": "Maestría de la Facultad de Ciencias Sociales."
+  },
+  {
+    "id": "maestria-en-ingenieria-civil",
+    "name": "Maestría en Ingeniería Civil",
+    "category": "Posgrado",
+    "description": "Maestría de la Facultad de Ingeniería."
+  },
+  {
+    "id": "maestria-en-ingenieria-de-sistemas-y-computacion",
+    "name": "Maestría en Ingeniería de Sistemas y Computación",
+    "category": "Posgrado",
+    "description": "Maestría de la Facultad de Ingeniería."
+  },
+  {
+    "id": "maestria-en-ingenieria-del-internet-de-las-cosas",
+    "name": "Maestría en Ingeniería del Internet de las Cosas",
+    "category": "Posgrado",
+    "description": "Maestría de la Facultad de Ingeniería."
+  },
+  {
+    "id": "maestria-en-ingenieria-electronica",
+    "name": "Maestría en Ingeniería Electrónica",
+    "category": "Posgrado",
+    "description": "Maestría de la Facultad de Ingeniería."
+  },
+  {
+    "id": "maestria-en-ingenieria-industrial",
+    "name": "Maestría en Ingeniería Industrial",
+    "category": "Posgrado",
+    "description": "Maestría de la Facultad de Ingeniería."
+  },
+  {
+    "id": "maestria-en-innovacion-en-la-construccion",
+    "name": "Maestría en Innovación en la Construcción",
+    "category": "Posgrado",
+    "description": "Maestría de la Facultad de Arquitectura y Diseño."
+  },
+  {
+    "id": "maestria-en-inteligencia-artificial",
+    "name": "Maestría en Inteligencia Artificial",
+    "category": "Posgrado",
+    "description": "Maestría de la Facultad de Ingeniería."
+  },
+  {
+    "id": "maestria-en-linguistica-aplicada-del-espanol-como-lengua-extranjera",
+    "name": "Maestría en Lingüística Aplicada del Español como Lengua Extranjera",
+    "category": "Posgrado",
+    "description": "Maestría de la Facultad de Comunicación y Lenguaje."
+  },
+  {
+    "id": "maestria-en-linguistica-aplicada-del-espanol-como-lengua-extranjera-virtual",
+    "name": "Maestría en Lingüística Aplicada del Español como Lengua Extranjera - Virtual",
+    "category": "Posgrado",
+    "description": "Maestría de la Facultad de Comunicación y Lenguaje."
+  },
+  {
+    "id": "maestria-en-literatura",
+    "name": "Maestría en Literatura",
+    "category": "Posgrado",
+    "description": "Maestría de la Facultad de Ciencias Sociales."
+  },
+  {
+    "id": "maestria-en-matematicas",
+    "name": "Maestría en Matemáticas",
+    "category": "Posgrado",
+    "description": "Maestría de la Facultad de Ciencias."
+  },
+  {
+    "id": "maestria-en-musica",
+    "name": "Maestría en Música",
+    "category": "Posgrado",
+    "description": "Maestría de la Facultad de Artes."
+  },
+  {
+    "id": "maestria-en-periodismo-cientifico",
+    "name": "Maestría en Periodismo Científico",
+    "category": "Posgrado",
+    "description": "Maestría de la Facultad de Comunicación y Lenguaje."
+  },
+  {
+    "id": "maestria-en-planeacion-urbana-y-regional",
+    "name": "Maestría en Planeación Urbana y Regional",
+    "category": "Posgrado",
+    "description": "Maestría de la Facultad de Arquitectura y Diseño."
+  },
+  {
+    "id": "maestria-en-politica-social",
+    "name": "Maestría en Política Social",
+    "category": "Posgrado",
+    "description": "Maestría de la Facultad de Ciencias Políticas y Relaciones Internacionales."
+  },
+  {
+    "id": "maestria-en-psicologia-clinica",
+    "name": "Maestría en Psicología Clínica",
+    "category": "Posgrado",
+    "description": "Maestría de la Facultad de Psicología."
+  },
+  {
+    "id": "maestria-en-restauracion-ecologica",
+    "name": "Maestría en Restauración Ecológica",
+    "category": "Posgrado",
+    "description": "Maestría interdisciplinar. Facultades: Ciencias; Estudios Ambientales y Rurales."
+  },
+  {
+    "id": "maestria-en-salud-mental-escolar-virtual",
+    "name": "Maestría en Salud Mental Escolar - Virtual",
+    "category": "Posgrado",
+    "description": "Maestría de la Facultad de Educación."
+  },
+  {
+    "id": "maestria-en-salud-publica",
+    "name": "Maestría en Salud Pública",
+    "category": "Posgrado",
+    "description": "Maestría del Instituto de Salud Pública."
+  },
+  {
+    "id": "maestria-en-seguridad-digital",
+    "name": "Maestría en Seguridad Digital",
+    "category": "Posgrado",
+    "description": "Maestría de la Facultad de Ingeniería."
+  },
+  {
+    "id": "maestria-en-seguridad-y-salud-en-el-trabajo",
+    "name": "Maestría en Seguridad y Salud en el Trabajo",
+    "category": "Posgrado",
+    "description": "Maestría de la Facultad de Enfermería."
+  },
+  {
+    "id": "maestria-en-teologia",
+    "name": "Maestría en Teología",
+    "category": "Posgrado",
+    "description": "Maestría de la Facultad de Teología."
   }
 ]

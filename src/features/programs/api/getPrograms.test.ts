@@ -1,4 +1,5 @@
 import { describe, expect, it, vi } from 'vitest'
+import catalog from '../../../../public/api/programs.json'
 import { getPrograms } from './getPrograms'
 
 describe('getPrograms', () => {
@@ -47,5 +48,17 @@ describe('getPrograms', () => {
         .mockResolvedValue(new Response(JSON.stringify([program, program]))),
     )
     await expect(getPrograms()).rejects.toThrow('identificadores repetidos')
+  })
+
+  it('acepta el catálogo incluido en public/api', async () => {
+    vi.stubGlobal(
+      'fetch',
+      vi.fn().mockResolvedValue(new Response(JSON.stringify(catalog))),
+    )
+    const programs = await getPrograms()
+    expect(programs.length).toBeGreaterThan(200)
+    expect(new Set(programs.map((program) => program.category))).toEqual(
+      new Set(['Pregrado', 'Posgrado']),
+    )
   })
 })
