@@ -1,6 +1,8 @@
+import { useRef } from 'react'
+import { flushSync } from 'react-dom'
 import { usePrograms } from '../context/ProgramsContext'
-import { useProgramFilters } from '../hooks/useProgramFilters'
-import { PROGRAM_CATEGORIES, type Program } from '../types'
+import { PAGE_SIZE, useProgramFilters } from '../hooks/useProgramFilters'
+import type { Program } from '../types'
 import { ProgramCard } from './ProgramCard'
 
 const EMPTY_PROGRAMS: Program[] = []
@@ -11,31 +13,45 @@ export function ProgramCatalog({
   onSelect: (id: string) => void
 }) {
   const { state, reload } = usePrograms()
-  const { query, setQuery, category, setCategory, filtered, clearFilters } =
-    useProgramFilters(
-      state.status === 'success' ? state.programs : EMPTY_PROGRAMS,
-    )
+  const {
+    query,
+    setQuery,
+    category,
+    setCategory,
+    categories,
+    filtered,
+    visible,
+    showMore,
+    clearFilters,
+  } = useProgramFilters(
+    state.status === 'success' ? state.programs : EMPTY_PROGRAMS,
+  )
+  const listRef = useRef<HTMLUListElement>(null)
+  // After "Mostrar más", continue keyboard navigation at the first new card.
+  // flushSync commits the new cards before focusing, without effect timing.
+  function loadMore() {
+    const firstNew = visible.length
+    flushSync(showMore)
+    listRef.current?.children[firstNew]?.querySelector('button')?.focus()
+  }
+  const remaining = filtered.length - visible.length
 
   if (state.status === 'loading')
     return (
       <p
         role="status"
-        className="rounded-2xl border border-slate-200 bg-white p-8 text-slate-600"
+        className="rounded-card border border-line bg-card p-8 text-ink-soft"
       >
         Cargando oferta académica…
       </p>
     )
   if (state.status === 'error')
     return (
-      <div className="rounded-2xl border border-red-200 bg-red-50 p-8">
-        <p role="alert" className="text-red-900">
+      <div className="rounded-card border border-danger-ink/30 bg-danger-soft p-8">
+        <p role="alert" className="font-medium text-danger-ink">
           {state.message}
         </p>
-        <button
-          type="button"
-          onClick={reload}
-          className="mt-4 rounded-lg bg-slate-900 px-5 py-3 text-sm font-semibold text-white hover:bg-slate-700"
-        >
+        <button type="button" onClick={reload} className="btn-primary mt-4">
           Reintentar
         </button>
       </div>
@@ -44,7 +60,7 @@ export function ProgramCatalog({
     return (
       <p
         role="status"
-        className="rounded-2xl border border-slate-200 bg-white p-8 text-slate-600"
+        className="rounded-card border border-line bg-card p-8 text-ink-soft"
       >
         No hay programas disponibles por ahora.
       </p>
@@ -55,13 +71,10 @@ export function ProgramCatalog({
       <div
         role="search"
         aria-label="Filtrar oferta académica"
-        className="mb-5 grid items-end gap-4 rounded-2xl border border-slate-200 bg-white p-5 sm:grid-cols-[1fr_1fr_auto]"
+        className="mb-5 grid items-end gap-4 rounded-card border border-line bg-card p-5 sm:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_auto]"
       >
         <div>
-          <label
-            htmlFor="program-search"
-            className="mb-2 block text-sm font-semibold text-slate-700"
-          >
+          <label htmlFor="program-search" className="label mb-2">
             Buscar programa
           </label>
           <input
@@ -70,25 +83,24 @@ export function ProgramCatalog({
             value={query}
             onChange={(event) => setQuery(event.target.value)}
             placeholder="Ej. Ingeniería"
-            className="w-full rounded-lg border border-slate-300 px-3 py-3 text-base"
+            className="field"
           />
         </div>
         <div>
-          <label
-            htmlFor="program-category"
-            className="mb-2 block text-sm font-semibold text-slate-700"
-          >
+          <label htmlFor="program-category" className="label mb-2">
             Categoría
           </label>
           <select
             id="program-category"
             value={category}
             onChange={(event) => setCategory(event.target.value)}
-            className="w-full rounded-lg border border-slate-300 bg-white px-3 py-3 text-base"
+            className="field"
           >
             <option value="">Todas las categorías</option>
-            {PROGRAM_CATEGORIES.map((item) => (
-              <option key={item}>{item}</option>
+            {categories.map((item) => (
+              <option key={item.value} value={item.value}>
+                {item.value} ({item.count})
+              </option>
             ))}
           </select>
         </div>
@@ -96,33 +108,47 @@ export function ProgramCatalog({
           type="button"
           onClick={clearFilters}
           disabled={!query && !category}
-          className="rounded-lg px-4 py-3 text-sm font-semibold text-blue-900 hover:bg-blue-50 disabled:cursor-default disabled:text-slate-400"
+          className="min-h-12 rounded-control px-4 text-sm font-bold text-brand transition-colors duration-300 hover:bg-brand-soft disabled:cursor-default disabled:bg-transparent disabled:text-ink-muted"
         >
           Limpiar filtros
         </button>
       </div>
-      <p role="status" className="mb-5 text-sm text-slate-600">
-        {filtered.length} de {state.programs.length} programas
+      <p role="status" className="mb-5 text-sm font-medium text-ink-muted">
+        {filtered.length === state.programs.length
+          ? `${filtered.length} programas`
+          : `${filtered.length} de ${state.programs.length} programas`}
+        {remaining > 0 && ` · mostrando ${visible.length}`}
       </p>
       {filtered.length ? (
         <ul
+          ref={listRef}
           aria-label="Programas académicos"
-          className="grid gap-5 md:grid-cols-2 lg:grid-cols-3"
+          className="grid gap-5 md:grid-cols-2 lg:grid-cols-3 lg:gap-6"
         >
-          {filtered.map((program) => (
+          {visible.map((program) => (
             <li key={program.id}>
               <ProgramCard program={program} onSelect={onSelect} />
             </li>
           ))}
         </ul>
       ) : (
-        <div className="rounded-2xl border border-dashed border-slate-300 p-10 text-center">
-          <h3 className="font-semibold text-slate-900">
+        <div className="rounded-card border border-dashed border-field bg-card p-10 text-center">
+          <h3 className="text-lg font-bold text-ink">
             No encontramos programas
           </h3>
-          <p className="mt-2 text-sm text-slate-600">
+          <p className="mt-2 text-base text-ink-soft">
             Prueba otro nombre o cambia la categoría.
           </p>
+        </div>
+      )}
+      {remaining > 0 && (
+        <div className="mt-8 flex justify-center">
+          <button type="button" onClick={loadMore} className="btn-secondary">
+            Mostrar {Math.min(PAGE_SIZE, remaining)} programas más
+            <span className="font-medium text-ink-muted">
+              ({remaining} restantes)
+            </span>
+          </button>
         </div>
       )}
     </>

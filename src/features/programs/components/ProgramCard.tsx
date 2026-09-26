@@ -8,23 +8,23 @@ export function ProgramCard({
   onSelect: (id: string) => void
 }) {
   return (
-    <article className="flex h-full flex-col rounded-2xl border border-slate-200 bg-white p-7 shadow-sm">
-      <span className="mb-6 w-fit rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-900">
+    <article className="flex h-full flex-col rounded-card border border-line bg-card p-6 transition-shadow duration-300 hover:shadow-[0_8px_24px_rgb(29_33_37/0.1)] sm:p-7">
+      <span className="mb-5 w-fit rounded-full bg-brand-soft px-3 py-1 text-xs font-bold text-brand">
         {program.category}
       </span>
-      <h3 className="mb-3 text-xl font-semibold tracking-tight text-slate-900">
+      <h3 className="mb-3 text-xl leading-snug font-bold tracking-tight text-ink">
         {program.name}
       </h3>
-      <p className="mb-6 text-sm leading-7 text-slate-600">
+      <p className="mb-6 text-base leading-7 text-ink-soft">
         {program.description}
       </p>
       <button
         type="button"
         onClick={() => onSelect(program.id)}
         aria-label={`Inscribirme en ${program.name}`}
-        className="mt-auto w-fit rounded-lg border border-blue-900 px-4 py-2.5 text-sm font-semibold text-blue-950 hover:bg-blue-50"
+        className="btn-secondary mt-auto w-fit"
       >
-        Inscribirme <span aria-hidden="true">↗</span>
+        Inscribirme <span aria-hidden="true">→</span>
       </button>
     </article>
   )

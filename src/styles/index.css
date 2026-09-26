@@ -1,13 +1,52 @@
+@import '@fontsource-variable/raleway';
 @import 'tailwindcss';
 
+/* Semantic tokens adapted from docs/design (Derecho, Javeriana). */
 @theme {
-  --font-sans: 'Segoe UI', system-ui, sans-serif;
+  --font-sans: 'Raleway Variable', 'Segoe UI', system-ui, sans-serif;
+
+  --color-brand: #2c5595;
+  --color-brand-hover: #244785;
+  --color-brand-deep: #001347;
+  --color-brand-soft: rgb(44 85 149 / 0.1);
+  --color-brand-line: rgb(44 85 149 / 0.2);
+  --color-on-brand: #ffffff;
+  --color-accent: #f6bd30;
+
+  --color-page: #fafafa;
+  --color-card: #ffffff;
+  --color-ink: #22272b;
+  --color-ink-soft: #454f59;
+  --color-ink-muted: #596773;
+  --color-line: #c7d1db;
+  --color-field: #596773;
+  --color-disabled: #8c9bab;
+
+  --color-success-ink: #186e3c;
+  --color-success-soft: #d8eddf;
+  --color-danger-ink: #c30506;
+  --color-danger-soft: rgb(195 5 6 / 0.06);
+
+  --container-page: 75rem;
+  --radius-control: 0.75rem;
+  --radius-card: 1rem;
+  --radius-media: 1.25rem;
 }
 
 @layer base {
+  html {
+    scroll-padding-top: 1.5rem;
+  }
+  input,
+  select {
+    scroll-margin-block: 2rem;
+  }
   body {
     margin: 0;
-    min-width: 320px;
+    min-width: 0;
+    background: var(--color-page);
+    color: var(--color-ink);
+    line-height: 1.5;
   }
   button,
   a {
@@ -17,11 +56,53 @@
     cursor: pointer;
   }
   :focus-visible {
-    outline: 3px solid #2563eb;
-    outline-offset: 4px;
+    outline: 3px solid var(--color-brand);
+    outline-offset: 3px;
   }
   ::selection {
-    background: #fde68a;
-    color: #172554;
+    background: var(--color-accent);
+    color: #22272b;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    ::before,
+    ::after {
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-control bg-brand px-5 py-3 text-sm font-bold text-on-brand transition-colors duration-300 hover:bg-brand-hover disabled:cursor-not-allowed disabled:bg-disabled;
+  }
+  .btn-secondary {
+    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-control border border-brand-line bg-brand-soft px-4 py-2.5 text-sm font-bold text-brand transition-colors duration-300 hover:border-brand hover:bg-card;
+  }
+  .field {
+    @apply min-w-0 w-full rounded-control border border-field bg-card px-3 py-3 text-base text-ink transition-colors duration-300 placeholder:text-ink-muted hover:border-ink aria-invalid:border-2 aria-invalid:border-danger-ink disabled:cursor-not-allowed disabled:bg-page disabled:text-ink-muted;
+  }
+  .label {
+    @apply block text-sm font-bold text-ink;
+  }
+  .eyebrow {
+    @apply mb-3 flex items-center gap-3 text-xs font-bold tracking-[0.15em] text-brand uppercase before:h-1 before:w-8 before:rounded-full before:bg-accent before:content-[''];
+  }
+}
+
+@layer components {
+  .lead-form .field {
+    border-width: 0 0 1px;
+    border-radius: 0;
+    padding-inline: 0.25rem;
+  }
+  .lead-form .field[aria-invalid='true'] {
+    border-bottom-width: 2px;
+  }
+  .lead-form .field:focus {
+    border-bottom-color: var(--color-brand);
   }
 }
