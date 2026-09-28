@@ -38,6 +38,7 @@ describe('catálogo inicial', () => {
     const fetchMock = vi
       .fn()
       .mockRejectedValueOnce(new Error('Sin conexión'))
+      .mockRejectedValueOnce(new Error('Sin conexión'))
       .mockResolvedValueOnce(new Response(JSON.stringify(programs)))
     vi.stubGlobal('fetch', fetchMock)
     renderApp()

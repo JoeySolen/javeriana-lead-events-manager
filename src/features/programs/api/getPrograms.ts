@@ -17,10 +17,10 @@ function isProgram(value: unknown): value is Program {
   )
 }
 
-export async function getPrograms(signal?: AbortSignal): Promise<Program[]> {
-  const url =
-    import.meta.env.VITE_PROGRAMS_API_URL ||
-    `${import.meta.env.BASE_URL}api/programs.json`
+async function fetchPrograms(
+  url: string,
+  signal?: AbortSignal,
+): Promise<Program[]> {
   const response = await fetch(url, signal ? { signal } : {})
 
   if (!response.ok)
@@ -34,4 +34,16 @@ export async function getPrograms(signal?: AbortSignal): Promise<Program[]> {
     throw new Error('El catálogo contiene identificadores repetidos.')
   }
   return data
+}
+
+export async function getPrograms(signal?: AbortSignal): Promise<Program[]> {
+  const remoteUrl = import.meta.env.VITE_PROGRAMS_API_URL || '/api/programs'
+  const localUrl = `${import.meta.env.BASE_URL}api/programs.json`
+
+  try {
+    return await fetchPrograms(remoteUrl, signal)
+  } catch (error) {
+    if (signal?.aborted) throw error
+    return fetchPrograms(localUrl, signal)
+  }
 }

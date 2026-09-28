@@ -1,8 +1,13 @@
-import { describe, expect, it, vi } from 'vitest'
+import { afterEach, describe, expect, it, vi } from 'vitest'
 import catalog from '../../../../public/api/programs.json'
 import { getPrograms } from './getPrograms'
 
 describe('getPrograms', () => {
+  afterEach(() => {
+    vi.unstubAllEnvs()
+    vi.unstubAllGlobals()
+  })
+
   it('usa el endpoint configurable y transmite la señal de cancelación', async () => {
     vi.stubEnv('VITE_PROGRAMS_API_URL', '/api/test')
     const fetchMock = vi
@@ -14,10 +19,37 @@ describe('getPrograms', () => {
     expect(fetchMock).toHaveBeenCalledWith('/api/test', { signal })
   })
 
+  it('usa la función serverless como fuente principal', async () => {
+    const fetchMock = vi
+      .fn()
+      .mockResolvedValueOnce(new Response(JSON.stringify(catalog)))
+    vi.stubGlobal('fetch', fetchMock)
+
+    await expect(getPrograms()).resolves.toHaveLength(catalog.length)
+    expect(fetchMock).toHaveBeenCalledOnce()
+    expect(fetchMock).toHaveBeenCalledWith('/api/programs', {})
+  })
+
+  it('usa el catálogo local cuando la función serverless falla', async () => {
+    const fetchMock = vi
+      .fn()
+      .mockResolvedValueOnce(new Response(null, { status: 502 }))
+      .mockResolvedValueOnce(new Response(JSON.stringify(catalog)))
+    vi.stubGlobal('fetch', fetchMock)
+
+    await expect(getPrograms()).resolves.toHaveLength(catalog.length)
+    expect(fetchMock).toHaveBeenNthCalledWith(1, '/api/programs', {})
+    expect(fetchMock).toHaveBeenNthCalledWith(2, '/api/programs.json', {})
+  })
+
   it('informa fallos HTTP', async () => {
     vi.stubGlobal(
       'fetch',
-      vi.fn().mockResolvedValue(new Response(null, { status: 503 })),
+      vi
+        .fn()
+        .mockImplementation(() =>
+          Promise.resolve(new Response(null, { status: 503 })),
+        ),
     )
     await expect(getPrograms()).rejects.toThrow('No pudimos cargar')
   })
@@ -29,7 +61,11 @@ describe('getPrograms', () => {
   ])('rechaza datos incompatibles: %j', async (data) => {
     vi.stubGlobal(
       'fetch',
-      vi.fn().mockResolvedValue(new Response(JSON.stringify(data))),
+      vi
+        .fn()
+        .mockImplementation(() =>
+          Promise.resolve(new Response(JSON.stringify(data))),
+        ),
     )
     await expect(getPrograms()).rejects.toThrow('formato inesperado')
   })
@@ -45,7 +81,9 @@ describe('getPrograms', () => {
       'fetch',
       vi
         .fn()
-        .mockResolvedValue(new Response(JSON.stringify([program, program]))),
+        .mockImplementation(() =>
+          Promise.resolve(new Response(JSON.stringify([program, program]))),
+        ),
     )
     await expect(getPrograms()).rejects.toThrow('identificadores repetidos')
   })

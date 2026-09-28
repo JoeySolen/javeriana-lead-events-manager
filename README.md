@@ -8,6 +8,7 @@ Documentación actualizada el 27 de septiembre de 2026.
 
 - **Demo pública:** [javeriana-lead-events-manager-beta.vercel.app](https://javeriana-lead-events-manager-beta.vercel.app/)
 - **Repositorio:** [github.com/JoeySolen/javeriana-lead-events-manager](https://github.com/JoeySolen/javeriana-lead-events-manager)
+- **Enunciado original:** [Prueba técnica frontend Javeriana 2026](docs/brief/prueba-tecnica-frontend-javeriana-2026.pdf)
 
 Incluye React + TypeScript estricto, Vite, Tailwind CSS, Context API, un catálogo responsive, consumo HTTP de un mock local, validación del contrato recibido, estados de carga/error/vacío, reintento y pruebas automatizadas. El catálogo contiene los 237 programas reales de pregrado y posgrado publicados por la Universidad (ver [Datos del catálogo](#datos-del-catálogo)).
 
@@ -92,7 +93,11 @@ Referencias de configuración: [Vite](https://vite.dev/guide/) y [Tailwind con V
 
 ## API mock
 
-Por defecto se realiza `GET /api/programs.json` al archivo servido por Vite (también se incluye en `dist`). Es un mock HTTP estático de lectura, sin backend ni operaciones de escritura. Permite ejecutar el flujo completo sin servicios externos. Se usa `BASE_URL` para resolver el archivo cuando la aplicación se sirve desde un subdirectorio.
+Por defecto, el frontend realiza `GET /api/programs` a una Vercel Function. La función consulta el dataset de Mockaroo desde el servidor y envía `MOCKAROO_API_KEY` mediante el encabezado `X-API-Key`; la credencial nunca se incorpora al bundle de Vite ni llega al navegador. La respuesta se mantiene una hora en la caché compartida de Vercel y admite contenido obsoleto durante un día si el proveedor tarda en responder.
+
+Si la función, la red o Mockaroo fallan, el frontend carga automáticamente `public/api/programs.json`. Este respaldo también permite usar `npm run dev`, ya que el servidor de Vite no ejecuta por sí solo las funciones de Vercel.
+
+En Vercel se debe crear la variable secreta `MOCKAROO_API_KEY` para Production, Preview y Development. Para una prueba local de la función, crea un `.env.local` ignorado por Git con la misma variable. No uses el prefijo `VITE_`, porque expondría su valor al cliente.
 
 ### Datos del catálogo
 
@@ -105,7 +110,7 @@ Por defecto se realiza `GET /api/programs.json` al archivo servido por Vite (tam
 - Se excluyen programas eclesiásticos, técnico laboral y educación continua (esta última está en otro sitio). La categoría `Educación Continua` sigue admitida por el contrato; el filtro solo ofrece categorías con programas, así que no aparece mientras el catálogo no tenga ninguno.
 - Es una copia estática: no se actualiza si la Universidad cambia su oferta.
 
-Para conectar otra API, copia `.env.example` a `.env.local`, define `VITE_PROGRAMS_API_URL` y reinicia Vite. La API debe permitir CORS si usa otro origen y devolver un array con este contrato:
+Para conectar otro endpoint público desde el frontend, define `VITE_PROGRAMS_API_URL` y reinicia Vite. La API debe permitir CORS si usa otro origen y devolver un array con este contrato:
 
 ```json
 [
@@ -167,11 +172,11 @@ El tooltip se coloca bajo el switch y limita su ancho en móvil. El toast se sit
 
 ## Verificación
 
-Última ejecución completa del código, el 27 de septiembre de 2026: **63 pruebas aprobadas en 8 archivos**, junto con tipos, lint, formato y build (`npm run check`). De ellas, 18 cubren el tema y su inicialización: 12 en `ThemeSwitch.test.tsx` y 6 en `themeInit.test.ts`.
+Última ejecución completa del código, el 27 de septiembre de 2026: **69 pruebas aprobadas en 9 archivos**, junto con tipos, lint, formato y build (`npm run check`). Incluye pruebas de la función serverless, el encabezado secreto, errores del proveedor, consumo principal y respaldo local. De ellas, 18 cubren el tema y su inicialización: 12 en `ThemeSwitch.test.tsx` y 6 en `themeInit.test.ts`.
 
 | Área                 | Cobertura automatizada                                                                                                                                                  |
 | -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| API y catálogo       | Contrato y datos incluidos, errores HTTP, carga, reintento, vacío y cancelación.                                                                                        |
+| API y catálogo       | Proxy de Mockaroo, secreto del servidor, caché, respaldo local, contrato y datos incluidos, errores HTTP, carga, reintento, vacío y cancelación.                        |
 | Filtros y paginación | Búsqueda y categoría combinadas, contadores, lotes de 12, reinicio al filtrar y foco en la primera card añadida.                                                        |
 | Leads                | Normalización, validación, selección desde card, duplicados, recuperación y fallos de lectura/escritura.                                                                |
 | Tema                 | Preferencia del sistema, elección persistida, sincronización entre pestañas, valores inválidos, almacenamiento bloqueado e inicialización previa a React.               |
