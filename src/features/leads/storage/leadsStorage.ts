@@ -3,6 +3,19 @@ import { isValidEmail } from '../utils/validation'
 
 export const LEADS_STORAGE_KEY = 'javeriana.leads.v1'
 
+function writeLeads(leads: Lead[]): void {
+  try {
+    window.localStorage.setItem(
+      LEADS_STORAGE_KEY,
+      JSON.stringify({ version: 1, leads }),
+    )
+  } catch {
+    throw new Error(
+      'No pudimos actualizar los registros. Revisa el espacio y los permisos del navegador e intenta de nuevo.',
+    )
+  }
+}
+
 function isLead(value: unknown): value is Lead {
   if (typeof value !== 'object' || value === null) return false
   return (
@@ -72,14 +85,31 @@ export function appendLead(lead: Lead): Lead[] {
   }
   const next = [lead, ...current]
   try {
-    window.localStorage.setItem(
-      LEADS_STORAGE_KEY,
-      JSON.stringify({ version: 1, leads: next }),
-    )
+    writeLeads(next)
   } catch {
     throw new Error(
       'No pudimos guardar el registro. Revisa el espacio y los permisos del navegador e intenta de nuevo.',
     )
   }
   return next
+}
+
+export function removeLead(id: string): Lead[] {
+  const current = readLeads()
+  const next = current.filter((lead) => lead.id !== id)
+  if (next.length === current.length) return current
+  writeLeads(next)
+  return next
+}
+
+export function clearLeads(): Lead[] {
+  readLeads()
+  try {
+    window.localStorage.removeItem(LEADS_STORAGE_KEY)
+  } catch {
+    throw new Error(
+      'No pudimos eliminar los registros. Revisa los permisos del navegador e intenta de nuevo.',
+    )
+  }
+  return []
 }

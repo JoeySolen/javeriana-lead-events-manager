@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { ArrowDownIcon } from '@phosphor-icons/react/dist/icons/ArrowDown'
 import { m, useReducedMotion, type Variants } from 'framer-motion'
 import campus from '../assets/terraza-educ.jpg'
 import { LeadSection } from '../features/leads/components/LeadSection'
@@ -118,7 +119,7 @@ export default function App() {
             </m.p>
             <m.div variants={heroActions} className="mt-8 flex flex-wrap gap-3">
               <a href="#oferta" className="btn-primary">
-                Explorar la oferta <span aria-hidden="true">↓</span>
+                Explorar la oferta <ArrowDownIcon />
               </a>
               <a href="#registro" className="btn-secondary">
                 Registrar mi interés

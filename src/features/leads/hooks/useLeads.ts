@@ -1,8 +1,10 @@
 import { useCallback, useEffect, useState } from 'react'
 import {
   appendLead,
+  clearLeads,
   LEADS_STORAGE_KEY,
   readLeads,
+  removeLead,
 } from '../storage/leadsStorage'
 import type { Lead, LeadInput } from '../types'
 
@@ -41,5 +43,16 @@ export function useLeads() {
     setState({ leads, error: null })
     return lead
   }, [])
-  return { ...state, addLead }
+
+  const deleteLead = useCallback((id: string) => {
+    const leads = removeLead(id)
+    setState({ leads, error: null })
+  }, [])
+
+  const deleteAllLeads = useCallback(() => {
+    const leads = clearLeads()
+    setState({ leads, error: null })
+  }, [])
+
+  return { ...state, addLead, deleteLead, deleteAllLeads }
 }

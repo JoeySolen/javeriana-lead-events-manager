@@ -1,5 +1,11 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest'
-import { appendLead, LEADS_STORAGE_KEY, readLeads } from './leadsStorage'
+import {
+  appendLead,
+  clearLeads,
+  LEADS_STORAGE_KEY,
+  readLeads,
+  removeLead,
+} from './leadsStorage'
 import type { Lead } from '../types'
 
 const lead: Lead = {
@@ -25,6 +31,18 @@ describe('persistencia de leads', () => {
       appendLead({ ...lead, id: '2', email: 'MARIA@example.com' }),
     ).toThrow('ya está registrado')
     expect(readLeads()).toEqual([lead])
+  })
+  it('elimina un registro sin modificar los demás', () => {
+    appendLead(lead)
+    appendLead({ ...lead, id: '2', programId: '2' })
+    expect(removeLead('2')).toEqual([lead])
+    expect(readLeads()).toEqual([lead])
+  })
+  it('elimina todos los registros y la clave de almacenamiento', () => {
+    appendLead(lead)
+    expect(clearLeads()).toEqual([])
+    expect(localStorage.getItem(LEADS_STORAGE_KEY)).toBeNull()
+    expect(readLeads()).toEqual([])
   })
   it.each([
     '{malformed',

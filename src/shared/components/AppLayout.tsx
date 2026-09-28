@@ -21,7 +21,7 @@ export function AppLayout({ children }: PropsWithChildren) {
               height={192}
               className="brand-logo h-12 w-auto sm:h-16"
             />
-            <p className="hidden border-l border-line pl-4 text-sm leading-tight font-bold text-ink-soft sm:block">
+            <p className="hidden text-sm leading-tight font-bold text-ink-soft sm:block">
               Lead & Events
               <br />
               Manager

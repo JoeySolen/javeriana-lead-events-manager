@@ -1,8 +1,10 @@
 import { AnimatePresence, m, useReducedMotion } from 'framer-motion'
+import { PaperPlaneTiltIcon } from '@phosphor-icons/react/dist/icons/PaperPlaneTilt'
 import { usePrograms } from '../../programs/context/ProgramsContext'
 import { PROGRAM_CATEGORIES, type Program } from '../../programs/types'
 import { useLeadForm } from '../hooks/useLeadForm'
 import { useLeads } from '../hooks/useLeads'
+import { LeadDashboard } from './LeadDashboard'
 
 const EMPTY_PROGRAMS: Program[] = []
 const fieldClass = 'field mt-2'
@@ -18,7 +20,7 @@ export function LeadSection({
   const { state } = usePrograms()
   const reduceMotion = useReducedMotion()
   const programs = state.status === 'success' ? state.programs : EMPTY_PROGRAMS
-  const { leads, error, addLead } = useLeads()
+  const { leads, error, addLead, deleteLead, deleteAllLeads } = useLeads()
   const {
     fullName,
     email,
@@ -32,12 +34,14 @@ export function LeadSection({
   const ready = state.status === 'success' && programs.length > 0
 
   return (
-    <section
+    <div
       id="registro"
-      aria-labelledby="lead-title"
       className="mx-auto max-w-page scroll-mt-8 px-5 pb-16 sm:px-8"
     >
-      <div className="grid gap-8 rounded-card border border-line bg-card p-6 sm:p-10 lg:grid-cols-[1fr_1.4fr] lg:gap-14">
+      <section
+        aria-labelledby="lead-title"
+        className="grid gap-8 rounded-card border border-line bg-card p-6 sm:p-10 lg:grid-cols-[1fr_1.4fr] lg:gap-14"
+      >
         <div>
           <p className="eyebrow">Da el siguiente paso</p>
           <h2
@@ -51,7 +55,7 @@ export function LeadSection({
           </p>
           <p
             id="local-notice"
-            className="mt-6 rounded-control border-l-4 border-brand bg-brand-soft p-4 text-sm leading-6 text-ink"
+            className="mt-6 rounded-control bg-brand-soft p-4 text-sm leading-6 text-ink"
           >
             Demostración: los datos se guardan únicamente en este navegador. No
             se envían a la Universidad ni se realiza una inscripción oficial.
@@ -193,7 +197,7 @@ export function LeadSection({
             disabled={!ready}
             className="btn-primary w-full py-3.5 text-base"
           >
-            Registrar interés
+            Registrar interés <PaperPlaneTiltIcon />
           </button>
           <AnimatePresence initial={false} mode="sync">
             {notice && (
@@ -204,14 +208,21 @@ export function LeadSection({
                 animate={{ opacity: 1, y: 0 }}
                 exit={reduceMotion ? { opacity: 1 } : { opacity: 0, y: -4 }}
                 transition={{ duration: reduceMotion ? 0 : 0.24 }}
-                className={`mt-5 rounded-control border-l-4 p-4 break-words text-sm leading-6 font-medium ${notice.kind === 'success' ? 'border-success-ink bg-success-soft text-success-ink' : 'border-danger-ink bg-danger-soft text-danger-ink'}`}
+                className={`mt-5 rounded-control p-4 break-words text-sm leading-6 font-medium ${notice.kind === 'success' ? 'bg-success-soft text-success-ink' : 'bg-danger-soft text-danger-ink'}`}
               >
                 {notice.text}
               </m.p>
             )}
           </AnimatePresence>
         </form>
-      </div>
-    </section>
+      </section>
+      <LeadDashboard
+        leads={leads}
+        programs={programs}
+        storageError={error}
+        onDelete={deleteLead}
+        onDeleteAll={deleteAllLeads}
+      />
+    </div>
   )
 }

@@ -4,19 +4,19 @@ SPA de la prueba técnica frontend de la Pontificia Universidad Javeriana.
 
 ## Estado actual
 
-Documentación actualizada el 27 de septiembre de 2026.
+Documentación actualizada el 28 de septiembre de 2026.
 
 - **Demo pública:** [javeriana-lead-events-manager-beta.vercel.app](https://javeriana-lead-events-manager-beta.vercel.app/)
 - **Repositorio:** [github.com/JoeySolen/javeriana-lead-events-manager](https://github.com/JoeySolen/javeriana-lead-events-manager)
 - **Enunciado original:** [Prueba técnica frontend Javeriana 2026](docs/brief/prueba-tecnica-frontend-javeriana-2026.pdf)
 
-Incluye React + TypeScript estricto, Vite, Tailwind CSS, Context API, un catálogo responsive, consumo HTTP de un mock local, validación del contrato recibido, estados de carga/error/vacío, reintento y pruebas automatizadas. El catálogo contiene los 237 programas reales de pregrado y posgrado publicados por la Universidad (ver [Datos del catálogo](#datos-del-catálogo)).
+Incluye React + TypeScript estricto, Vite, Tailwind CSS, Context API, un catálogo responsive, consumo de Mockaroo mediante una Vercel Function, respaldo local, validación del contrato recibido, estados de carga/error/vacío, reintento y pruebas automatizadas. El catálogo contiene los 237 programas reales de pregrado y posgrado publicados por la Universidad (ver [Datos del catálogo](#datos-del-catálogo)).
 
-Incluye búsqueda por nombre sin distinción de tildes o mayúsculas, filtro combinado por categoría con contador por categoría, catálogo paginado de 12 en 12 («Mostrar más»), selección desde las cards y formulario accesible con normalización, validación, detección de duplicados y persistencia en localStorage.
+Incluye búsqueda por nombre sin distinción de tildes o mayúsculas, filtro combinado por categoría con contador por categoría, catálogo paginado de 12 en 12 («Mostrar más»), selección desde las cards y formulario accesible con normalización, validación, detección de duplicados y persistencia en localStorage. Un panel responsive permite consultar, buscar, filtrar y eliminar los prospectos guardados.
 
-La interfaz aplica la referencia visual de la página de Derecho: Raleway local, paleta azul/amarillo, fotografía del campus, tarjetas y campos subrayados en el formulario. Incluye modo oscuro con switch, logo blanco transparente, tooltip de estado y toast de confirmación.
+La interfaz aplica la referencia visual de la página de Derecho: Raleway local, paleta azul/amarillo, fotografía del campus, tarjetas, campos subrayados e iconografía Phosphor. Incluye modo oscuro con switch, logo blanco transparente, tooltip de estado y toast de confirmación.
 
-**Última validación del código:** `npm run check` correcto, con 63 pruebas en 8 archivos, revisión de tipos, lint, formato y build de producción.
+**Última validación del código:** `npm run check` correcto, con 75 pruebas en 10 archivos, revisión de tipos, lint, formato y build de producción.
 
 **Pendientes para la entrega:** validación manual con lector de pantalla y en navegadores adicionales. El repositorio público y la demo desplegada ya están enlazados.
 
@@ -60,8 +60,8 @@ src/
       hooks/               # Filtros combinados y paginación con useMemo
       types.ts             # Program y categorías
     leads/
-      components/          # Formulario y resumen de registros
-      hooks/               # Estado del formulario y persistencia
+      components/          # Formulario y panel de gestión de prospectos
+      hooks/               # Estado, persistencia y filtros de leads
       storage/             # Lectura, escritura y contrato local versionado
       utils/               # Validación y normalización
       types.ts             # Lead y LeadInput
@@ -86,8 +86,9 @@ La [guía de diseño](docs/design/README.md) documenta la paleta, tipografía, e
 - Context API administra la carga del catálogo, con estados discriminados de TypeScript. El formulario y los filtros mantienen su estado local en hooks separados para evitar actualizaciones globales por cada pulsación.
 - `fetch` con `async/await` y `AbortController` permite cancelar al desmontar, incluso durante las comprobaciones de React StrictMode. Se verifica la respuesta en ejecución porque TypeScript no valida datos externos.
 - Tailwind usa su plugin oficial para Vite. La interfaz incluye HTML semántico, foco visible, enlace para saltar al contenido y distribución responsive.
+- `@phosphor-icons/react` unifica la iconografía de acciones y estados. Un `IconContext` define tamaño, peso y comportamiento accesible; los imports por icono evitan que Vite procese el catálogo completo.
 - Se conserva Oxlint de la plantilla oficial de Vite; Prettier unifica formato. TypeScript activa `strict`, `noUncheckedIndexedAccess` y `exactOptionalPropertyTypes`, sin tipos `any` en el código de aplicación.
-- Vitest + Testing Library verifican carga, error/reintento, catálogo vacío, cancelación, contrato HTTP y del catálogo incluido, filtros combinados, paginación y foco, selección desde cards, validación, normalización, duplicados, recuperación al remontar y fallos de almacenamiento. También cubren el tema inicial, el switch, su sincronización, el toast y el tooltip.
+- Vitest + Testing Library verifican carga, error/reintento, catálogo vacío, cancelación, contrato HTTP y del catálogo incluido, filtros combinados, paginación y foco, selección desde cards, validación, normalización, duplicados, recuperación al remontar, consulta y eliminación de prospectos y fallos de almacenamiento. También cubren el tema inicial, el switch, su sincronización, el toast y el tooltip.
 
 Referencias de configuración: [Vite](https://vite.dev/guide/) y [Tailwind con Vite](https://tailwindcss.com/docs/installation/using-vite).
 
@@ -137,9 +138,15 @@ Las categorías admitidas son `Pregrado`, `Posgrado` y `Educación Continua`; lo
 
 La clave `javeriana.leads.v1` contiene `{ "version": 1, "leads": [...] }`. Cada lead incluye `id`, `fullName`, `email`, `programId` y `createdAt` (ISO). Se valida el contrato al leer y se consulta de nuevo antes de añadir, evitando sobrescribir registros guardados desde una vista anterior. Los eventos `storage` actualizan el contador entre pestañas. localStorage no proporciona transacciones; escrituras exactamente simultáneas entre pestañas no están garantizadas y requerirían un backend o un mecanismo adicional de bloqueo.
 
-Los datos permanecen solo en el navegador y origen actuales; no se envían a la Universidad. El formulario lo informa antes del registro. No es una inscripción oficial. Borrar los datos del sitio elimina los registros.
+Los datos permanecen solo en el navegador y origen actuales; no se envían a la Universidad. El formulario lo informa antes del registro. No es una inscripción oficial. El panel permite eliminar un registro o todos mediante una confirmación explícita; borrar los datos del sitio también elimina los registros.
 
-Si el navegador bloquea la lectura o no tiene espacio para escribir, se muestra el error y no se anuncia éxito. Si el contenido está dañado o tiene una versión incompatible, se conserva sin sobrescribir. Para recuperar un entorno de demostración, exporta primero el valor de la clave desde las herramientas del navegador y repara sus datos; si decides descartarlos, elimina únicamente esa clave y recarga. No hay borrado automático.
+Si el navegador bloquea la lectura o no tiene espacio para escribir, se muestra el error y no se anuncia éxito. Si el contenido está dañado o tiene una versión incompatible, se conserva sin sobrescribir. Para recuperar un entorno de demostración, exporta primero el valor de la clave desde las herramientas del navegador y repara sus datos; si decides descartarlos, elimina únicamente esa clave y recarga.
+
+### Panel de prospectos
+
+El panel muestra el total y presenta cada lead con nombre, correo, programa y fecha local de registro. La búsqueda ignora mayúsculas y tildes, el selector ofrece únicamente programas con registros y ambos filtros pueden combinarse. Las filas de escritorio se convierten en tarjetas en pantallas pequeñas sin duplicar controles en el árbol accesible.
+
+Cada eliminación actualiza React y `localStorage` en la misma operación. El borrado individual anuncia el nombre afectado; el borrado total requiere confirmación en línea, enfoca «Cancelar» y anuncia el resultado. Los estados vacío, sin coincidencias y almacenamiento no disponible tienen mensajes específicos.
 
 ## Tema claro y oscuro
 
@@ -172,17 +179,17 @@ El tooltip se coloca bajo el switch y limita su ancho en móvil. El toast se sit
 
 ## Verificación
 
-Última ejecución completa del código, el 27 de septiembre de 2026: **69 pruebas aprobadas en 9 archivos**, junto con tipos, lint, formato y build (`npm run check`). Incluye pruebas de la función serverless, el encabezado secreto, errores del proveedor, consumo principal y respaldo local. De ellas, 18 cubren el tema y su inicialización: 12 en `ThemeSwitch.test.tsx` y 6 en `themeInit.test.ts`.
+Última ejecución completa del código, el 28 de septiembre de 2026: **75 pruebas aprobadas en 10 archivos**, junto con tipos, lint, formato y build (`npm run check`). Incluye pruebas de la función serverless, el encabezado secreto, errores del proveedor, consumo principal, respaldo local y gestión de prospectos. De ellas, 18 cubren el tema y su inicialización: 12 en `ThemeSwitch.test.tsx` y 6 en `themeInit.test.ts`.
 
 | Área                 | Cobertura automatizada                                                                                                                                                  |
 | -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | API y catálogo       | Proxy de Mockaroo, secreto del servidor, caché, respaldo local, contrato y datos incluidos, errores HTTP, carga, reintento, vacío y cancelación.                        |
 | Filtros y paginación | Búsqueda y categoría combinadas, contadores, lotes de 12, reinicio al filtrar y foco en la primera card añadida.                                                        |
-| Leads                | Normalización, validación, selección desde card, duplicados, recuperación y fallos de lectura/escritura.                                                                |
+| Leads                | Normalización, validación, duplicados, persistencia, búsqueda, filtro, eliminación individual y total, confirmación y fallos de almacenamiento.                         |
 | Tema                 | Preferencia del sistema, elección persistida, sincronización entre pestañas, valores inválidos, almacenamiento bloqueado e inicialización previa a React.               |
 | Avisos               | Toast en ambos temas, reemplazo y cierre automático, limpieza al desmontar; tooltip por hover/foco, texto actualizado, relación accesible y cierre con Escape o salida. |
 
-Las comprobaciones manuales ya realizadas incluyen la composición a 320, 390, 768 y 1280 px, el flujo de filtro/registro/persistencia, ambos temas, activación del switch con Espacio y Enter, tooltip y toast sin desbordamiento a 320 px, y logo blanco sobre fondo oscuro.
+Las comprobaciones manuales ya realizadas incluyen la composición a 320, 390, 768 y 1280 px, el flujo de filtro/registro/persistencia, el panel de prospectos en 390 y 1280 px sin desbordamiento, ambos temas, activación del switch con Espacio y Enter, tooltip y toast sin desbordamiento a 320 px, y logo blanco sobre fondo oscuro.
 
 La [demo en Vercel](https://javeriana-lead-events-manager-beta.vercel.app/) se verificó el 27 de septiembre de 2026 mediante su URL limpia: respuesta HTTP 200, catálogo de 237 programas cargado desde `/api/programs.json`, recursos gráficos disponibles, filtros combinados, paginación con gestión de foco, tema, validación del formulario y vista de 390 px sin desbordamiento horizontal. La consola no presentó errores ni advertencias durante el recorrido.
 

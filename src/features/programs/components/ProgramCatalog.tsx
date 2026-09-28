@@ -1,4 +1,7 @@
 import { useRef } from 'react'
+import { BroomIcon } from '@phosphor-icons/react/dist/icons/Broom'
+import { MagnifyingGlassIcon } from '@phosphor-icons/react/dist/icons/MagnifyingGlass'
+import { PlusIcon } from '@phosphor-icons/react/dist/icons/Plus'
 import { flushSync } from 'react-dom'
 import { m, useReducedMotion } from 'framer-motion'
 import { usePrograms } from '../context/ProgramsContext'
@@ -79,14 +82,17 @@ export function ProgramCatalog({
           <label htmlFor="program-search" className="label mb-2">
             Buscar programa
           </label>
-          <input
-            id="program-search"
-            type="search"
-            value={query}
-            onChange={(event) => setQuery(event.target.value)}
-            placeholder="Ej. Ingeniería"
-            className="field"
-          />
+          <div className="relative">
+            <MagnifyingGlassIcon className="pointer-events-none absolute top-1/2 left-3 -translate-y-1/2 text-ink-muted" />
+            <input
+              id="program-search"
+              type="search"
+              value={query}
+              onChange={(event) => setQuery(event.target.value)}
+              placeholder="Ej. Ingeniería"
+              className="field pl-10"
+            />
+          </div>
         </div>
         <div>
           <label htmlFor="program-category" className="label mb-2">
@@ -110,9 +116,9 @@ export function ProgramCatalog({
           type="button"
           onClick={clearFilters}
           disabled={!query && !category}
-          className="min-h-12 rounded-control px-4 text-sm font-bold text-brand transition-colors duration-300 hover:bg-brand-soft disabled:cursor-default disabled:bg-transparent disabled:text-ink-muted"
+          className="inline-flex min-h-12 items-center gap-2 rounded-control px-4 text-sm font-bold text-brand transition-colors duration-300 hover:bg-brand-soft disabled:cursor-default disabled:bg-transparent disabled:text-ink-muted"
         >
-          Limpiar filtros
+          <BroomIcon /> Limpiar filtros
         </button>
       </div>
       <p role="status" className="mb-5 text-sm font-medium text-ink-muted">
@@ -143,7 +149,7 @@ export function ProgramCatalog({
           ))}
         </ul>
       ) : (
-        <div className="rounded-card border border-dashed border-field bg-card p-10 text-center">
+        <div className="rounded-card bg-page p-10 text-center">
           <h3 className="text-lg font-bold text-ink">
             No encontramos programas
           </h3>
@@ -155,6 +161,7 @@ export function ProgramCatalog({
       {remaining > 0 && (
         <div className="mt-8 flex justify-center">
           <button type="button" onClick={loadMore} className="btn-secondary">
+            <PlusIcon />
             Mostrar {Math.min(PAGE_SIZE, remaining)} programas más
             <span className="font-medium text-ink-muted">
               ({remaining} restantes)

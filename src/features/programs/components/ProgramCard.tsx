@@ -1,3 +1,4 @@
+import { ArrowRightIcon } from '@phosphor-icons/react/dist/icons/ArrowRight'
 import type { Program } from '../types'
 
 export function ProgramCard({
@@ -24,7 +25,7 @@ export function ProgramCard({
         aria-label={`Inscribirme en ${program.name}`}
         className="btn-secondary mt-auto w-fit"
       >
-        Inscribirme <span aria-hidden="true">→</span>
+        Inscribirme <ArrowRightIcon />
       </button>
     </article>
   )
