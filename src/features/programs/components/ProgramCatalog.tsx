@@ -1,5 +1,6 @@
 import { useRef } from 'react'
 import { flushSync } from 'react-dom'
+import { m, useReducedMotion } from 'framer-motion'
 import { usePrograms } from '../context/ProgramsContext'
 import { PAGE_SIZE, useProgramFilters } from '../hooks/useProgramFilters'
 import type { Program } from '../types'
@@ -13,6 +14,7 @@ export function ProgramCatalog({
   onSelect: (id: string) => void
 }) {
   const { state, reload } = usePrograms()
+  const reduceMotion = useReducedMotion()
   const {
     query,
     setQuery,
@@ -125,10 +127,19 @@ export function ProgramCatalog({
           aria-label="Programas académicos"
           className="grid gap-5 md:grid-cols-2 lg:grid-cols-3 lg:gap-6"
         >
-          {visible.map((program) => (
-            <li key={program.id}>
+          {visible.map((program, index) => (
+            <m.li
+              key={program.id}
+              initial={reduceMotion ? false : { opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: reduceMotion ? 0 : 0.32,
+                delay: reduceMotion ? 0 : (index % PAGE_SIZE) * 0.025,
+                ease: 'easeOut',
+              }}
+            >
               <ProgramCard program={program} onSelect={onSelect} />
-            </li>
+            </m.li>
           ))}
         </ul>
       ) : (

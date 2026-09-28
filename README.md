@@ -14,7 +14,7 @@ La interfaz aplica la referencia visual de la página de Derecho: Raleway local,
 
 **Última validación del código:** `npm run check` correcto, con 63 pruebas en 8 archivos, revisión de tipos, lint, formato y build de producción.
 
-**Pendientes para la entrega:** revisión final de accesibilidad, confirmar la visibilidad pública del repositorio, publicar el despliegue y añadir ambos enlaces. Las animaciones con Framer Motion siguen pendientes como extra opcional.
+**Pendientes para la entrega:** validación manual con lector de pantalla y en navegadores adicionales, confirmar la visibilidad pública del repositorio, publicar el despliegue y añadir ambos enlaces.
 
 ## Requisitos y ejecución
 
@@ -164,7 +164,7 @@ El tooltip se coloca bajo el switch y limita su ancho en móvil. El toast se sit
 
 ## Verificación
 
-Última ejecución completa del código, el 26 de septiembre de 2026: **63 pruebas aprobadas en 8 archivos**, junto con tipos, lint, formato y build (`npm run check`). De ellas, 18 cubren el tema y su inicialización: 12 en `ThemeSwitch.test.tsx` y 6 en `themeInit.test.ts`.
+Última ejecución completa del código, el 27 de septiembre de 2026: **63 pruebas aprobadas en 8 archivos**, junto con tipos, lint, formato y build (`npm run check`). De ellas, 18 cubren el tema y su inicialización: 12 en `ThemeSwitch.test.tsx` y 6 en `themeInit.test.ts`.
 
 | Área                 | Cobertura automatizada                                                                                                                                                  |
 | -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -174,7 +174,21 @@ El tooltip se coloca bajo el switch y limita su ancho en móvil. El toast se sit
 | Tema                 | Preferencia del sistema, elección persistida, sincronización entre pestañas, valores inválidos, almacenamiento bloqueado e inicialización previa a React.               |
 | Avisos               | Toast en ambos temas, reemplazo y cierre automático, limpieza al desmontar; tooltip por hover/foco, texto actualizado, relación accesible y cierre con Escape o salida. |
 
-Las comprobaciones manuales ya realizadas incluyen la composición a 320, 390, 768 y 1280 px, el flujo de filtro/registro/persistencia, ambos temas, activación del switch con Espacio y Enter, tooltip y toast sin desbordamiento a 320 px, y logo blanco sobre fondo oscuro. Los contrastes de los tokens oscuros están documentados en la guía de diseño. No se afirma una auditoría completa de accesibilidad ni compatibilidad exhaustiva entre navegadores.
+Las comprobaciones manuales ya realizadas incluyen la composición a 320, 390, 768 y 1280 px, el flujo de filtro/registro/persistencia, ambos temas, activación del switch con Espacio y Enter, tooltip y toast sin desbordamiento a 320 px, y logo blanco sobre fondo oscuro.
+
+### Revisión de accesibilidad del 27 de septiembre de 2026
+
+| Comprobación         | Resultado                                                                                                                                                                                                                                           |
+| -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Estructura accesible | El árbol accesible expone banner, navegación, contenido principal, regiones con nombre, búsqueda, listas, formulario, etiquetas, ayudas y niveles de encabezado coherentes.                                                                         |
+| Teclado              | El orden de tabulación recorre todas las acciones visibles sin trampas. «Saltar al contenido» enfoca `main`; el envío inválido enfoca el primer campo con su error; «Inscribirme» enfoca el nombre y «Mostrar más» enfoca la primera tarjeta nueva. |
+| Reflujo              | Sin desplazamiento horizontal ni elementos recortados a 640 CSS px, equivalente al reflujo de una ventana de 1280 px al 200 %, ni a 320 CSS px.                                                                                                     |
+| Contraste claro      | Texto principal 14.44:1, secundario 8:1, auxiliar 5.57:1, botón principal 7.39:1, campos 5.81:1, éxito 5.13:1 y error 5.64:1.                                                                                                                       |
+| Contraste oscuro     | Texto principal 16.17:1, secundario 12.75:1, auxiliar 9.34:1, botón principal 9.99:1, campos 5.57:1, éxito 8.25:1 y error 7.68:1.                                                                                                                   |
+| Regiones vivas       | El toast usa una sola región `status` atómica para evitar anuncios duplicados; los resultados del catálogo y avisos del formulario conservan sus roles de estado o alerta.                                                                          |
+| Movimiento           | `prefers-reduced-motion` elimina desplazamientos, retardos y duraciones de Framer Motion y reduce las transiciones CSS.                                                                                                                             |
+
+Los textos deshabilitados quedan por debajo de 3:1 en el tema claro, pero los componentes inactivos están exentos del criterio de contraste. Los bordes decorativos de tarjetas tampoco comunican estado ni delimitan campos; los bordes de controles sí superan 3:1. La revisión se realizó con el árbol accesible y el navegador Chromium integrado. Sigue pendiente una sesión práctica con NVDA, JAWS o VoiceOver y comprobaciones en Firefox, Safari y Edge; por ello no se afirma compatibilidad exhaustiva entre lectores o navegadores.
 
 ### Recorrido manual reproducible
 
@@ -185,13 +199,20 @@ Las comprobaciones manuales ya realizadas incluyen la composición a 320, 390, 7
 5. Alternar el switch con ratón, Espacio y Enter. Verificar el tema, el icono, el logo, el foco y el toast. Cambiar varias veces y comprobar que solo queda el último aviso durante 3 segundos desde el último cambio.
 6. Recargar y comprobar la preferencia guardada. Para verificar el seguimiento del sistema, usar un perfil de prueba sin preferencia de tema guardada; los tests cubren este caso sin modificar los registros del navegador real.
 7. Pasar el cursor sobre el switch y sobre su tooltip; comprobar estado/acción. Probar foco con Tab, cambiar de tema, cerrar con Escape y salir del control.
-8. Revisar ambos temas a 320, 390, 768 y 1280 px, incluyendo filtros, formulario, mensajes y ayudas. Completar aparte la revisión de zoom al 200 %, recorrido completo de teclado y lector de pantalla.
+8. Revisar ambos temas a 320, 390, 768 y 1280 px, incluyendo filtros, formulario, mensajes y ayudas. Repetir el reflujo a 640 CSS px y el recorrido completo de teclado. Completar aparte la sesión con lector de pantalla y navegadores adicionales.
 
 ## Pendientes de entrega y extras
 
-1. Completar la revisión de accesibilidad: zoom al 200 %, recorrido íntegro con teclado, lector de pantalla y contraste de todos los estados; ampliar la comprobación entre navegadores.
-2. Añadir, si se decide completar ese extra, animaciones discretas con Framer Motion. Actualmente solo hay transiciones CSS: color/sombra de 300 ms y desplazamiento del indicador del switch de 200 ms. `prefers-reduced-motion` reduce su duración; Framer Motion aún no está instalado.
-3. Confirmar la visibilidad pública del repositorio, publicar el despliegue y añadir ambos enlaces al README. El build genera `dist/`; para un subdirectorio debe configurarse `base` en Vite. No se ha documentado todavía una URL pública de demo.
-4. Conectar una API mock externa solo si se requiere; el mock HTTP local ya permite ejecutar y probar el flujo.
+1. Completar la validación manual con lector de pantalla y ampliar la comprobación a Firefox, Safari y Edge. La revisión de estructura accesible, teclado, reflujo, movimiento y contraste ya está documentada.
+2. Confirmar la visibilidad pública del repositorio, publicar el despliegue y añadir ambos enlaces al README. El build genera `dist/`; para un subdirectorio debe configurarse `base` en Vite. No se ha documentado todavía una URL pública de demo.
+3. Conectar una API mock externa solo si se requiere; el mock HTTP local ya permite ejecutar y probar el flujo.
 
 TypeScript estricto, modo oscuro y pruebas automatizadas ya están implementados. El enunciado fija la entrega el lunes 28 de septiembre de 2026 a las 12:00 p. m.
+
+## Animaciones
+
+Framer Motion añade entradas discretas a la portada y la fotografía, aparición escalonada de las tarjetas al cargar o mostrar más programas y transición del mensaje de éxito o error del formulario. Las animaciones usan opacidad y desplazamientos cortos, no alteran el orden del DOM ni la gestión del foco.
+
+Los componentes consultan `prefers-reduced-motion` mediante `useReducedMotion`: cuando el usuario solicita menos movimiento, se omiten los desplazamientos, retardos y duraciones. Las transiciones CSS existentes también se reducen desde `src/styles/index.css`.
+
+Para limitar el peso, `AppProviders` carga solo `domAnimation` mediante `LazyMotion` y los componentes usan `m` en lugar de `motion`. El modo `strict` impide volver a usar `motion` por descuido. El JavaScript del build pasa de 75.8 KB gzip sin animaciones a 104.2 KB, frente a 117.6 KB con el componente `motion` completo.

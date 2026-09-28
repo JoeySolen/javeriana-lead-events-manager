@@ -1,3 +1,4 @@
+import { AnimatePresence, m, useReducedMotion } from 'framer-motion'
 import { usePrograms } from '../../programs/context/ProgramsContext'
 import { PROGRAM_CATEGORIES, type Program } from '../../programs/types'
 import { useLeadForm } from '../hooks/useLeadForm'
@@ -15,6 +16,7 @@ export function LeadSection({
   onProgramChange: (id: string) => void
 }) {
   const { state } = usePrograms()
+  const reduceMotion = useReducedMotion()
   const programs = state.status === 'success' ? state.programs : EMPTY_PROGRAMS
   const { leads, error, addLead } = useLeads()
   const {
@@ -193,14 +195,21 @@ export function LeadSection({
           >
             Registrar interés
           </button>
-          {notice && (
-            <p
-              role={notice.kind === 'success' ? 'status' : 'alert'}
-              className={`mt-5 rounded-control border-l-4 p-4 break-words text-sm leading-6 font-medium ${notice.kind === 'success' ? 'border-success-ink bg-success-soft text-success-ink' : 'border-danger-ink bg-danger-soft text-danger-ink'}`}
-            >
-              {notice.text}
-            </p>
-          )}
+          <AnimatePresence initial={false} mode="sync">
+            {notice && (
+              <m.p
+                key={`${notice.kind}-${notice.text}`}
+                role={notice.kind === 'success' ? 'status' : 'alert'}
+                initial={reduceMotion ? false : { opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={reduceMotion ? { opacity: 1 } : { opacity: 0, y: -4 }}
+                transition={{ duration: reduceMotion ? 0 : 0.24 }}
+                className={`mt-5 rounded-control border-l-4 p-4 break-words text-sm leading-6 font-medium ${notice.kind === 'success' ? 'border-success-ink bg-success-soft text-success-ink' : 'border-danger-ink bg-danger-soft text-danger-ink'}`}
+              >
+                {notice.text}
+              </m.p>
+            )}
+          </AnimatePresence>
         </form>
       </div>
     </section>

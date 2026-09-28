@@ -4,9 +4,9 @@ Estado documentado al 26 de septiembre de 2026. Recursos usados por la interfaz;
 
 ## Fotografía
 
-- Archivo: `src/assets/campus-javeriana.jpg`.
-- Origen: [fotografía del campus](https://www.javeriana.edu.co/recursosdb/d/info-prg/img_7769-1-), usada en el formulario de la [página de Derecho](https://www.javeriana.edu.co/carrera-derecho).
-- JPEG original de 400 × 650 px; recorte de presentación mediante `object-fit: cover`, sin alterar el archivo.
+- Archivo activo: `src/assets/terraza-educ.jpg`.
+- Origen: [fotografía panorámica del campus](https://www.javeriana.edu.co/recursosdb/20125/12007037/3990-TerrazaEduc.jpg/884f4bf9-c7c4-1ac0-d4f2-f765b2a5fdbb), publicada por la Universidad Javeriana.
+- El JPEG original de 2560 × 1707 px y 2,4 MB se optimizó a 1600 × 1067 px y aproximadamente 399 KB. La presentación utiliza `object-fit: cover` para adaptar el encuadre al hero.
 - Recurso institucional usado como referencia en esta demostración. No se ha identificado una licencia abierta de redistribución; no se atribuye una licencia libre al archivo.
 
 ## Logo

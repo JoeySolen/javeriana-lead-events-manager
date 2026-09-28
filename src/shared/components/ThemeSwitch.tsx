@@ -86,7 +86,7 @@ export function ThemeSwitch() {
           <div
             id={tooltipId}
             role="tooltip"
-            className="absolute top-full left-0 z-50 w-56 max-w-[calc(100vw-2.5rem)] pt-2 sm:right-0 sm:left-auto"
+            className="absolute top-full left-0 z-50 w-56 max-w-[calc(100vw-2.5rem)] pt-2 lg:right-0 lg:left-auto"
           >
             <p className="rounded-control border border-brand-line bg-card px-4 py-3 text-sm leading-6 text-ink shadow-lg">
               <span className="block font-bold">
@@ -99,14 +99,11 @@ export function ThemeSwitch() {
           </div>
         )}
       </div>
-      <div
-        aria-live="polite"
-        aria-atomic="true"
-        className="pointer-events-none fixed inset-x-4 bottom-6 z-50 flex justify-end sm:left-auto sm:right-6"
-      >
+      <div className="pointer-events-none fixed inset-x-4 bottom-6 z-50 flex justify-end sm:left-auto sm:right-6">
         {notice && (
           <p
             role="status"
+            aria-atomic="true"
             className="flex max-w-full items-center gap-3 rounded-control border border-brand-line bg-card px-5 py-4 text-sm font-bold text-ink shadow-lg"
           >
             <svg

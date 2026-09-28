@@ -189,11 +189,12 @@ Los tokens viven en `@theme` de [src/styles/index.css](../../src/styles/index.cs
 - Radios: controles 12 px (`rounded-control`), tarjetas 16 px (`rounded-card`), fotografía de portada 20 px (`rounded-media`). Anchura máxima 75 rem (`max-w-page`), márgenes móviles de 20 px.
 - Clases de componente `btn-primary`, `btn-secondary`, `field`, `label` y `eyebrow`; acciones principales con altura mínima de 44 px.
 - Cabecera no persistente adaptada al tema, con switch, enlace a la oferta y acción «Registrarme». Portada de dos columnas en escritorio y apilada en móvil; fotografía del campus junto al texto y los dos niveles (pregrado y posgrado) bajo las acciones. Origen de los recursos en [assets.md](assets.md).
-- Transiciones CSS de color/sombra de 0.3 s e indicador del switch de 0.2 s. `prefers-reduced-motion` reduce las transiciones a 0.01 ms. No hay animación global al cambiar de tema ni Framer Motion instalado.
+- Transiciones CSS de color/sombra de 0.3 s e indicador del switch de 0.2 s. Framer Motion anima la entrada de la portada, la fotografía, las tarjetas nuevas y los mensajes del formulario. `prefers-reduced-motion` elimina desplazamientos, retardos y duraciones; no hay animación global al cambiar de tema.
 - Logo oficial en la cabecera, 48 px de alto en móvil y 64 px desde `sm`, con `alt` «Pontificia Universidad Javeriana»; el nombre de la aplicación aparece a su lado desde `sm`.
 - Formulario integrado con campos subrayados, etiquetas visibles y borde inferior contrastado. Los filtros conservan campos con contorno completo.
-- Verificación de la entrega (26 de septiembre de 2026): anchuras de 320, 390, 768 y 1280 px sin desbordamiento horizontal; imágenes y fuente local cargadas; filtros por nombre/categoría, selección desde tarjeta, errores con foco en el primer campo inválido, registro normalizado y persistencia tras recarga comprobados en el navegador. Consola sin errores ni advertencias durante el recorrido.
-- Último `npm run check` completado: tipos, lint, formato, 63 tests en 8 archivos y compilación de producción. Pendientes de una revisión específica: zoom al 200 %, recorrido completo con teclado y auditoría formal de accesibilidad.
+- Verificación de la entrega (27 de septiembre de 2026): anchuras de 320, 390, 640, 768 y 1280 px sin desbordamiento horizontal; imágenes y fuente local cargadas; filtros por nombre/categoría, selección desde tarjeta, errores con foco en el primer campo inválido, registro normalizado y persistencia tras recarga comprobados en el navegador. Consola sin errores ni advertencias durante el recorrido.
+- Revisión de accesibilidad: estructura y nombres comprobados en el árbol accesible; recorrido completo de teclado sin trampas; enlace de salto y gestión de foco correctos; reflujo equivalente al 200 % sin recortes; contrastes esenciales de texto, acciones, campos y estados por encima de los mínimos aplicables en ambos temas. El toast conserva una sola región viva para evitar anuncios duplicados.
+- Último `npm run check` completado: tipos, lint, formato, 63 tests en 8 archivos y compilación de producción. Pendientes: validación práctica con lector de pantalla y revisión en Firefox, Safari y Edge.
 
 Los recursos gráficos y la fuente se sirven desde el proyecto; consultar [origen de recursos](assets.md). La paginación, los filtros y las reglas de registro existentes se conservan.
 
@@ -234,7 +235,7 @@ Contrastes medidos de los tokens oscuros: texto principal/superficie 14.03:1, se
 - Texto dinámico: «Modo claro activo» y «Cambiar a modo oscuro», o el inverso.
 - `role="tooltip"`, ID estable mediante `useId` y asociación con `aria-describedby` solo mientras está abierto.
 - Escape lo cierra incluso al abrirlo únicamente por hover; salir del conjunto y perder foco también lo cierra.
-- Se sitúa bajo el switch; ancho de 224 px limitado al viewport, alineación izquierda en móvil y derecha desde `sm`. Superficie y texto adaptados al tema.
+- Se sitúa bajo el switch; ancho de 224 px limitado al viewport, alineación izquierda mientras la navegación ocupa toda la fila y derecha desde `lg`, cuando la navegación pasa a su disposición de escritorio. Superficie y texto adaptados al tema.
 
 ### Toast
 
@@ -249,3 +250,12 @@ Contrastes medidos de los tokens oscuros: texto principal/superficie 14.03:1, se
 Última validación del código: 63 tests aprobados en 8 archivos, tipos, lint, formato y build correctos. Los 18 tests de tema cubren su inicialización, switch, persistencia, errores de almacenamiento, sincronización, tooltip y toast. Se comprobaron visualmente ambos temas, logo blanco, activación con Espacio/Enter, cierre con Escape, persistencia tras recarga, toast y ayudas a 320 px sin desbordamiento.
 
 La guía no da por completados el recorrido íntegro con teclado, el zoom al 200 %, las pruebas con lector de pantalla ni una auditoría exhaustiva entre navegadores. El [README](../../README.md#verificación) reúne cobertura, recorrido manual y pendientes.
+
+## 13. Movimiento
+
+- Portada: la entrada se organiza como una secuencia. El antetítulo aparece desde la izquierda; título, descripción, acciones y niveles académicos ascienden de forma escalonada. La fotografía entra desde la derecha con un zoom interno de 1.08× a 1×. La secuencia dura aproximadamente 1.2 s y usa una curva de salida suave.
+- Catálogo: cada lote de hasta 12 tarjetas aparece con desplazamiento de 12 px y escalonado de 25 ms. El foco de «Mostrar más» sigue pasando inmediatamente a la primera tarjeta nueva.
+- Formulario: los mensajes de éxito y error entran y salen mediante `AnimatePresence`, con desplazamientos de 8 px y 4 px.
+- Duraciones: 240 ms en los mensajes del formulario, 320 ms en las tarjetas y entre 420 y 580 ms en los textos y acciones de la portada. La fotografía es la excepción: entra en 780 ms y su zoom interno dura 1.05 s, ambos tras un retardo de 180 ms. Portada y catálogo usan curvas de salida suave. No se animan cambios globales de tema ni se modifican las dimensiones de la página.
+- `LazyMotion` con `domAnimation` y componentes `m` cargan solo las funciones de animación usadas (opacidad, transformaciones y salida); `strict` rechaza `motion`.
+- `useReducedMotion` omite el estado inicial desplazado y asigna duración y retardo cero cuando el sistema solicita reducir el movimiento. La regla CSS existente reduce también las transiciones que no dependen de Framer Motion.
