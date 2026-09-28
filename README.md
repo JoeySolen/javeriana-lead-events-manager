@@ -4,7 +4,10 @@ SPA de la prueba técnica frontend de la Pontificia Universidad Javeriana.
 
 ## Estado actual
 
-Documentación actualizada el 26 de septiembre de 2026.
+Documentación actualizada el 27 de septiembre de 2026.
+
+- **Demo pública:** [javeriana-lead-events-manager-beta.vercel.app](https://javeriana-lead-events-manager-beta.vercel.app/)
+- **Repositorio:** [github.com/JoeySolen/javeriana-lead-events-manager](https://github.com/JoeySolen/javeriana-lead-events-manager)
 
 Incluye React + TypeScript estricto, Vite, Tailwind CSS, Context API, un catálogo responsive, consumo HTTP de un mock local, validación del contrato recibido, estados de carga/error/vacío, reintento y pruebas automatizadas. El catálogo contiene los 237 programas reales de pregrado y posgrado publicados por la Universidad (ver [Datos del catálogo](#datos-del-catálogo)).
 
@@ -14,7 +17,7 @@ La interfaz aplica la referencia visual de la página de Derecho: Raleway local,
 
 **Última validación del código:** `npm run check` correcto, con 63 pruebas en 8 archivos, revisión de tipos, lint, formato y build de producción.
 
-**Pendientes para la entrega:** validación manual con lector de pantalla y en navegadores adicionales, confirmar la visibilidad pública del repositorio, publicar el despliegue y añadir ambos enlaces.
+**Pendientes para la entrega:** validación manual con lector de pantalla y en navegadores adicionales. El repositorio público y la demo desplegada ya están enlazados.
 
 ## Requisitos y ejecución
 
@@ -176,6 +179,8 @@ El tooltip se coloca bajo el switch y limita su ancho en móvil. El toast se sit
 
 Las comprobaciones manuales ya realizadas incluyen la composición a 320, 390, 768 y 1280 px, el flujo de filtro/registro/persistencia, ambos temas, activación del switch con Espacio y Enter, tooltip y toast sin desbordamiento a 320 px, y logo blanco sobre fondo oscuro.
 
+La [demo en Vercel](https://javeriana-lead-events-manager-beta.vercel.app/) se verificó el 27 de septiembre de 2026 mediante su URL limpia: respuesta HTTP 200, catálogo de 237 programas cargado desde `/api/programs.json`, recursos gráficos disponibles, filtros combinados, paginación con gestión de foco, tema, validación del formulario y vista de 390 px sin desbordamiento horizontal. La consola no presentó errores ni advertencias durante el recorrido.
+
 ### Revisión de accesibilidad del 27 de septiembre de 2026
 
 | Comprobación         | Resultado                                                                                                                                                                                                                                           |
@@ -204,8 +209,7 @@ Los textos deshabilitados quedan por debajo de 3:1 en el tema claro, pero los co
 ## Pendientes de entrega y extras
 
 1. Completar la validación manual con lector de pantalla y ampliar la comprobación a Firefox, Safari y Edge. La revisión de estructura accesible, teclado, reflujo, movimiento y contraste ya está documentada.
-2. Confirmar la visibilidad pública del repositorio, publicar el despliegue y añadir ambos enlaces al README. El build genera `dist/`; para un subdirectorio debe configurarse `base` en Vite. No se ha documentado todavía una URL pública de demo.
-3. Conectar una API mock externa solo si se requiere; el mock HTTP local ya permite ejecutar y probar el flujo.
+2. Conectar una API mock externa solo si se requiere; el mock HTTP local ya permite ejecutar, probar y desplegar el flujo.
 
 TypeScript estricto, modo oscuro y pruebas automatizadas ya están implementados. El enunciado fija la entrega el lunes 28 de septiembre de 2026 a las 12:00 p. m.
 
